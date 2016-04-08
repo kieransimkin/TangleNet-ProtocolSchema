@@ -10,6 +10,7 @@
     <xs:element ref='NRFPacket'/>
     <xs:element ref='MessageTypes'/>
    </xs:sequence>
+   <xs:attribute name="noNamespaceSchemaLocation" type="xs:string" />
   </xs:complexType>
    <xs:key name="BitfieldTypeID"> 
 	   <xs:selector xpath="BitfieldTypes/BitfieldType"/> 
