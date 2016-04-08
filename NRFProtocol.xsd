@@ -130,11 +130,11 @@
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="Name" type="xs:string" />
+							<xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1" />
 							<xs:element name="CType" type="xs:string" />
 							<xs:element name="MaxWidth" type="xs:unsignedInt" minOccurs="0" maxOccurs="1" />
 							<xs:element name="MinWidth" type="xs:unsignedInt" minOccurs="0" maxOccurs="1" />
 							<xs:element name="DefaultWidth" type="xs:unsignedInt" minOccurs="0" maxOccurs="1" />
-							<xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1" />
 							<xs:element name="InvalidWidths" minOccurs="0" maxOccurs="1">
 								<xs:complexType>
 									<xs:sequence>
@@ -168,13 +168,14 @@
 								<xs:complexType>
 									<xs:sequence>
 										<xs:element name="Attribute" maxOccurs="unbounded">
-											<xs:complexType>
+											<xs:complexType name="TypeAttribute">
 												<xs:all>
 													<xs:element name="Name" type="xs:string" />
 													<xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1" />
 													<xs:element name="ID" type="xs:string" minOccurs="0" maxOccurs="1" />
 													<xs:element name="Type" type="DataTypeID" minOccurs="0" maxOccurs="1" />
 													<xs:element name="SubType" type="SubType" minOccurs="0" maxOccurs="1" />
+													<xs:element name="References" type="xs:NMTOKEN" minOccurs="0" maxOccurs="1" />
 												</xs:all>
 												<xs:attribute name="ID" type="xs:NMTOKEN" use="required" />
 												<xs:attribute name="Type" type="DataTypeID" use="required" />
@@ -187,7 +188,7 @@
 								<xs:complexType>
 									<xs:sequence>
 										<xs:element name="SubType" maxOccurs="unbounded">
-											<xs:complexType>
+											<xs:complexType name="DataTypeSubType">
 												<xs:all>
 													<xs:element name="Name" type="xs:string" />
 													<xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1" />
@@ -279,7 +280,7 @@
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="SubType" maxOccurs="unbounded">
-								<xs:complexType>
+								<xs:complexType name="MessageTypeSubType">
 									<xs:sequence>
 										<xs:element name="Name" type="xs:string" />
 										<xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1" />

@@ -87,14 +87,14 @@
 
 			]]></Description>
 			<Options>
-			<Option ID="MILLISECONDS"><Description></Description></Option>"
-			<Option ID="SECONDS"><Description></Description></Option>"
-			<Option ID="HOURS"><Description></Description></Option>"
-			<Option ID="DAYS"><Description></Description></Option>"
-			<Option ID="WEEKS"><Description></Description></Option>"
-			<Option ID="MONTHS"><Description></Description></Option>"
-			<Option ID="YEARS"><Description></Description></Option>"
-			<Option ID="TICKS"><Description></Description></Option>"
+			<Option ID="MILLISECONDS"><Description></Description></Option>
+			<Option ID="SECONDS"><Description></Description></Option>
+			<Option ID="HOURS"><Description></Description></Option>
+			<Option ID="DAYS"><Description></Description></Option>
+			<Option ID="WEEKS"><Description></Description></Option>
+			<Option ID="MONTHS"><Description></Description></Option>
+			<Option ID="YEARS"><Description></Description></Option>
+			<Option ID="TICKS"><Description></Description></Option>
 		</Options>
 		</EnumerationType>
 		<EnumerationType ID="TIME_PRECISION">
