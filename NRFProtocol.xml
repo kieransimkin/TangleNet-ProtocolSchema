@@ -55,31 +55,38 @@
 			<Name><![CDATA[CollisionParticipant]]></Name>
 			<Description><![CDATA[
 
-			]]></Description>
+				]]></Description>
+			<Options>
 			<Option ID="IMPOSTOR"><Description></Description></Option>
 			<Option ID="VICTIM"><Description></Description></Option>
+		</Options>
 		</EnumerationType>
 		<EnumerationType ID="HANDEDNESS">
 			<Name><![CDATA[Handedness]]></Name>
 			<Description><![CDATA[
 
 			]]></Description>
+			<Options>
 			<Option ID="LEFT"><Description></Description></Option>
 			<Option ID="RIGHT"><Description></Description></Option>
+		</Options>
 		</EnumerationType>
 		<EnumerationType ID="SEQUENCE_PADDING">
 			<Name><![CDATA[SequencePadding]]></Name>
 			<Description><![CDATA[
 
 			]]></Description>
+			<Options>
 			<Option ID="FULL_SEQUENCE_UNKNOWN"><Description></Description></Option>
 			<Option ID="FULL_SEQUENCE"><Description></Description></Option>
+		</Options>
 		</EnumerationType>
 		<EnumerationType ID="TIMESPAN_LENGTH">
 			<Name><![CDATA[TimespanLength]]></Name>
 			<Description><![CDATA[
 
 			]]></Description>
+			<Options>
 			<Option ID="MILLISECONDS"><Description></Description></Option>"
 			<Option ID="SECONDS"><Description></Description></Option>"
 			<Option ID="HOURS"><Description></Description></Option>"
@@ -88,15 +95,18 @@
 			<Option ID="MONTHS"><Description></Description></Option>"
 			<Option ID="YEARS"><Description></Description></Option>"
 			<Option ID="TICKS"><Description></Description></Option>"
+		</Options>
 		</EnumerationType>
 		<EnumerationType ID="TIME_PRECISION">
 			<Name><![CDATA[TimePrecision]]></Name>
 			<Description><![CDATA[
 
 			]]></Description>
+			<Options>
 			<Option ID="MICROSECONDS"><Description></Description></Option>
 			<Option ID="MILLISECONDS"><Description></Description></Option>
 			<Option ID="SECONDS"><Description></Description></Option>
+		</Options>
 		</EnumerationType>
 	</EnumerationTypes>
 	<Types>
