@@ -50,32 +50,32 @@
 			</Bits>
 		</BitfieldType>
 	</BitfieldTypes>
-	<Enumerations>
-		<Enumeration ID="COLLISION_PARTICIPANT">
+	<EnumerationTypes>
+		<EnumerationType ID="COLLISION_PARTICIPANT">
 			<Name><![CDATA[CollisionParticipant]]></Name>
 			<Description><![CDATA[
 
 			]]></Description>
 			<Option ID="IMPOSTOR"><Description></Description></Option>
 			<Option ID="VICTIM"><Description></Description></Option>
-		</Enumeration>
-		<Enumeration ID="HANDEDNESS">
+		</EnumerationType>
+		<EnumerationType ID="HANDEDNESS">
 			<Name><![CDATA[Handedness]]></Name>
 			<Description><![CDATA[
 
 			]]></Description>
 			<Option ID="LEFT"><Description></Description></Option>
 			<Option ID="RIGHT"><Description></Description></Option>
-		</Enumeration>
-		<Enumeration ID="SEQUENCE_PADDING">
+		</EnumerationType>
+		<EnumerationType ID="SEQUENCE_PADDING">
 			<Name><![CDATA[SequencePadding]]></Name>
 			<Description><![CDATA[
 
 			]]></Description>
 			<Option ID="FULL_SEQUENCE_UNKNOWN"><Description></Description></Option>
 			<Option ID="FULL_SEQUENCE"><Description></Description></Option>
-		</Enumeration>
-		<Enumeration ID="TIMESPAN_LENGTH">
+		</EnumerationType>
+		<EnumerationType ID="TIMESPAN_LENGTH">
 			<Name><![CDATA[TimespanLength]]></Name>
 			<Description><![CDATA[
 
@@ -88,8 +88,8 @@
 			<Option ID="MONTHS"><Description></Description></Option>"
 			<Option ID="YEARS"><Description></Description></Option>"
 			<Option ID="TICKS"><Description></Description></Option>"
-		</Enumeration>
-		<Enumeration ID="TIME_PRECISION">
+		</EnumerationType>
+		<EnumerationType ID="TIME_PRECISION">
 			<Name><![CDATA[TimePrecision]]></Name>
 			<Description><![CDATA[
 
@@ -97,8 +97,8 @@
 			<Option ID="MICROSECONDS"><Description></Description></Option>
 			<Option ID="MILLISECONDS"><Description></Description></Option>
 			<Option ID="SECONDS"><Description></Description></Option>
-		</Enumeration>
-	</Enumerations>
+		</EnumerationType>
+	</EnumerationTypes>
 	<Types>
 		<Type ID="UINT">
 			<Name><![CDATA[UInt]]></Name>
