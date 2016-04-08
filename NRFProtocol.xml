@@ -189,30 +189,30 @@
 			<Description><![CDATA[
 
 				]]></Description>
+			<CType>uint8_t[21]</CType>
 			<MinWidth>21</MinWidth>
 			<MaxWidth>21</MaxWidth>
-			<CType>uint8_t[21]</CType>
 		</Type>
 		<Type ID="ECDSA_HALFSIGN">
 			<Name><![CDATA[ecdsaHalfSign]]></Name>
 			<Description><![CDATA[
 
 				]]></Description>
+			<CType>uint8_t[20]</CType>
 			<Attributes>
 				<Attribute ID="Handedness" Type="ENUM"><ID>HANDEDNESS</ID><Description>Enumeration</Description></Attribute>
 			</Attributes>
 			<MinWidth>20</MinWidth>
 			<MaxWidth>20</MaxWidth>
-			<CType>uint8_t[20]</CType>
 		</Type>
 		<Type ID="KNOT_LINK_ID">
 			<Name><![CDATA[KnotLinkID]]></Name>
 			<Description><![CDATA[
 
 				]]></Description>
+			<CType>uint8_t[3]</CType>
 			<MinWidth>3</MinWidth>
 			<MaxWidth>3</MaxWidth>
-			<CType>uint8_t[3]</CType>
 		</Type>
 		<Type ID="SUBTYPE">
 			<Name><![CDATA[MessageSubtype]]></Name>
