@@ -1,283 +1,272 @@
 <?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-
- <xs:element name='NRFProtocol'>
-	 <xs:complexType>
-		 <xs:all>
-    <xs:element ref='BitfieldTypes'/>
-    <xs:element ref='EnumerationTypes'/>
-    <xs:element ref='Types'/>
-    <xs:element ref='NRFPacket'/>
-    <xs:element ref='MessageTypes'/>
-    </xs:all>
-   <xs:attribute name="noNamespaceSchemaLocation" type="xs:string" />
-  </xs:complexType>
-   <xs:key name="BitfieldTypeID"> 
-	   <xs:selector xpath="BitfieldTypes/BitfieldType"/> 
-	   <xs:field xpath="@ID"/> 
-   </xs:key> 
-   <xs:key name="EnumerationTypeID"> 
-	   <xs:selector xpath="EnumerationTypes/EnumerationType"/> 
-	   <xs:field xpath="@ID"/> 
-   </xs:key> 
-   <xs:key name="TypeID"> 
-	   <xs:selector xpath="Types/Type"/> 
-	   <xs:field xpath="@ID"/> 
-   </xs:key> 
-   <xs:keyref name="TypeIDRef" refer="TypeID"> 
-	   <xs:selector xpath="*"/> 
-	   <xs:field xpath="@DataTypeID"/> 
-   </xs:keyref> 
-   <xs:keyref name="EnumerationTypeIDRef" refer="EnumerationTypeID"> 
-	   <xs:selector xpath="./EnumerationType"/> 
-	   <xs:field xpath="@EnumerationTypeID"/> 
-   </xs:keyref> 
-   <xs:keyref name="BitfieldTypeIDRef" refer="BitfieldTypeID"> 
-	   <xs:selector xpath="BitfieldType"/> 
-	   <xs:field xpath="@BitfieldTypeID"/> 
-   </xs:keyref> 
-   <xs:key name="MessageTypeID"> 
-	   <xs:selector xpath="MessageTypes/MessageType"/> 
-	   <xs:field xpath="@ID"/> 
-   </xs:key> 
-   <xs:keyref name="MessageTypeIDRef" refer="MessageTypeID"> 
-	   <xs:selector xpath="MessageType"/> 
-	   <xs:field xpath="@MessageTypeID"/> 
-   </xs:keyref> 
- </xs:element>
-
- <xs:simpleType name="DataTypeID">
-	 <xs:restriction base="xs:NMTOKEN" />
- </xs:simpleType>
- <xs:simpleType name="SubType">
-	 <xs:restriction base="xs:NMTOKEN" />
- </xs:simpleType>
- <xs:simpleType name="EnumerationTypeID">
-	 <xs:restriction base="xs:NMTOKEN" />
- </xs:simpleType>
- <xs:simpleType name="BitfieldTypeID">
-	 <xs:restriction base="xs:NMTOKEN" />
- </xs:simpleType>
- <xs:simpleType name="MessageTypeID">
-	 <xs:restriction base="xs:NMTOKEN" />
- </xs:simpleType>
-
- <xs:element name='BitfieldTypes'>
-	 <xs:complexType>
-		 <xs:all>
-			 <xs:element ref='BitfieldType' maxOccurs='unbounded'/>
-		 </xs:all>
-  </xs:complexType>
- </xs:element>
-
- <xs:element name='BitfieldType'>
- <xs:complexType><xs:sequence>
-    <xs:element name='Name' type="xs:string"/>
-    <xs:element name='Description' type="xs:string"/>
-    <xs:element name='Bits'>
-	  <xs:complexType>
-	    <xs:element name='Bit' maxOccurs='unbounded'>
-		  <xs:complexType>
-		    <xs:element name='Name' type="xs:string"/>
-		    <xs:element name='Description' type="xs:string" minOccurs='0' maxOccurs='1'/>
-		   <xs:attribute name='ID' type='xs:NMTOKEN' use='required'/>
-		   </xs:complexType>
-	   </xs:element>
-	  </xs:complexType>
-  </xs:element>
-  </xs:sequence>
-   <xs:attribute name='Width' type='xs:unsignedInt' use='optional' default='1'/>
-   <xs:attribute name='ID' type='xs:NMTOKEN' use='required'/>
-   </xs:complexType>
- </xs:element>
-
-
-
- <xs:element name='EnumerationTypes'>
-	 <xs:complexType><xs:all>
-	   <xs:element name='EnumerationType' maxOccurs='unbounded'>
-
-		   <xs:complexType><xs:sequence>
-		    <xs:element name='Name' type="xs:string"/>
-		    <xs:element name='Description' type="xs:string" minOccurs='0' maxOccurs='1'/>
-		    <xs:element name='Options'>
-			 <xs:complexType>
-				 <xs:all>
-				   <xs:element name='Option' maxOccurs='unbounded'>
-					  <xs:complexType>
-					    <xs:element name='Name' type="xs:string" />
-					    <xs:element name='Description' type="xs:string" minOccurs='0' maxOccurs='1'/>
-					   <xs:attribute name='ID' type='xs:NMTOKEN' use='required'/>
-					  </xs:complexType>
-
-				  </xs:element>
-		  	 	 </xs:all>
-		  	</xs:complexType>
-	  	    </xs:element>
-    </xs:sequence></xs:complexType>
-	  </xs:element>
-  </xs:all>
-
-					   <xs:attribute name='ID' type='xs:NMTOKEN' use='required'/>
-				   </xs:complexType>
-			 </xs:element>
-
-
-
-
- <xs:element name='Types'>
-  <xs:complexType>
-	   <xs:element name='Type' maxOccurs='unbounded'>
-		   <xs:complexType><xs:sequence>
-		    <xs:element name='Name' type="xs:string" />
-		    <xs:element name='CType' type="xs:string" />
-		    <xs:element name='MaxWidth' type="xs:unsignedInt" minOccurs='0' maxOccurs='1' />
-		    <xs:element name='MinWidth' type="xs:unsignedInt" minOccurs='0' maxOccurs='1' />
-		    <xs:element name='DefaultWidth' type="xs:unsignedInt" minOccurs='0' maxOccurs='1' />
-		    <xs:element name='Description' type="xs:string" minOccurs='0' maxOccurs='1'/>
-		    <xs:element name='InvalidWidths' minOccurs='0' maxOccurs='1'>
-			  <xs:complexType>
-				   <xs:element name='InvalidWidth' type="xs:unsignedInt" maxOccurs='unbounded'/>
-			  </xs:complexType>
-		    </xs:element>
-		    <xs:element name='ValidWidths' minOccurs='0' maxOccurs='1'>
-			  <xs:complexType>
-				   <xs:element name='ValidWidth' type="xs:unsignedInt" maxOccurs='unbounded'/>
-			  </xs:complexType>
-		    </xs:element>
-		    <xs:element name='Values' minOccurs='0' maxOccurs='1'>
-			  <xs:complexType>
-				   <xs:element name='Value' maxOccurs='unbounded'>
-					  <xs:complexType>
-					     <xs:simpleContent>
-					      <xs:extension base="xs:NMTOKEN">
-					   	<xs:attribute name='ID' type='xs:NMTOKEN' use='required'/>
-					      </xs:extension>
-				             </xs:simpleContent>
-				      	   </xs:complexType>
-				   </xs:element>
-			  </xs:complexType>
-		    </xs:element>
-		    <xs:element name='Attributes' minOccurs='0' maxOccurs='1'>
-			  <xs:complexType>
-				   <xs:element name='Attribute' maxOccurs='unbounded'>
-					  <xs:complexType>
-		    				<xs:element name='Name' type="xs:string" />
-		    				<xs:element name='Description' type="xs:string" minOccurs='0' maxOccurs='1'/>
-		    				<xs:element name='ID' type="xs:string" minOccurs='0' maxOccurs='1' />
-		    				<xs:element name='Type' type="DataTypeID" minOccurs='0' maxOccurs='1'/>
-		    				<xs:element name='SubType' type="SubType" minOccurs='0' maxOccurs='1'/>
-		   			   <xs:attribute name='ID' type='xs:NMTOKEN' use='required'/>
-		   			   <xs:attribute name='Type' type='DataTypeID' use='required'/>
-				   	</xs:complexType>
-				   </xs:element>
-			  </xs:complexType>
-		    </xs:element>
-		    <xs:element name='SubTypes' minOccurs='0' maxOccurs='1'>
-			  <xs:complexType>
-				   <xs:element name='SubType' maxOccurs='unbounded'>
-					  <xs:complexType>
-		    				<xs:element name='Name' type="xs:string" />
-		    				<xs:element name='Description' type="xs:string" minOccurs='0' maxOccurs='1'/>
-		    				<xs:element name='CType' type="xs:string" />
-						<xs:element name='MandatoryAttributes' minOccurs="0" maxOccurs="1">
-							<xs:complexType>
-									<xs:element name='MandatoryAttribute' type="xs:NMTOKEN" maxOccurs='unbounded' />
+	<xs:element name="NRFProtocol">
+		<xs:complexType>
+			<xs:all>
+				<xs:element ref="BitfieldTypes" />
+				<xs:element ref="EnumerationTypes" />
+				<xs:element ref="Types" />
+				<xs:element ref="NRFPacket" />
+				<xs:element ref="MessageTypes" />
+			</xs:all>
+			<xs:attribute name="noNamespaceSchemaLocation" type="xs:string" />
+		</xs:complexType>
+		<xs:key name="BitfieldTypeID">
+			<xs:selector xpath="BitfieldTypes/BitfieldType" />
+			<xs:field xpath="@ID" />
+		</xs:key>
+		<xs:key name="EnumerationTypeID">
+			<xs:selector xpath="EnumerationTypes/EnumerationType" />
+			<xs:field xpath="@ID" />
+		</xs:key>
+		<xs:key name="TypeID">
+			<xs:selector xpath="Types/Type" />
+			<xs:field xpath="@ID" />
+		</xs:key>
+		<xs:keyref name="TypeIDRef" refer="TypeID">
+			<xs:selector xpath="*" />
+			<xs:field xpath="@DataTypeID" />
+		</xs:keyref>
+		<xs:keyref name="EnumerationTypeIDRef" refer="EnumerationTypeID">
+			<xs:selector xpath="./EnumerationType" />
+			<xs:field xpath="@EnumerationTypeID" />
+		</xs:keyref>
+		<xs:keyref name="BitfieldTypeIDRef" refer="BitfieldTypeID">
+			<xs:selector xpath="BitfieldType" />
+			<xs:field xpath="@BitfieldTypeID" />
+		</xs:keyref>
+		<xs:key name="MessageTypeID">
+			<xs:selector xpath="MessageTypes/MessageType" />
+			<xs:field xpath="@ID" />
+		</xs:key>
+		<xs:keyref name="MessageTypeIDRef" refer="MessageTypeID">
+			<xs:selector xpath="MessageType" />
+			<xs:field xpath="@MessageTypeID" />
+		</xs:keyref>
+	</xs:element>
+	<xs:simpleType name="DataTypeID">
+		<xs:restriction base="xs:NMTOKEN" />
+	</xs:simpleType>
+	<xs:simpleType name="SubType">
+		<xs:restriction base="xs:NMTOKEN" />
+	</xs:simpleType>
+	<xs:simpleType name="EnumerationTypeID">
+		<xs:restriction base="xs:NMTOKEN" />
+	</xs:simpleType>
+	<xs:simpleType name="BitfieldTypeID">
+		<xs:restriction base="xs:NMTOKEN" />
+	</xs:simpleType>
+	<xs:simpleType name="MessageTypeID">
+		<xs:restriction base="xs:NMTOKEN" />
+	</xs:simpleType>
+	<xs:element name="BitfieldTypes">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="BitfieldType" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BitfieldType">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Name" type="xs:string" />
+				<xs:element name="Description" type="xs:string" />
+				<xs:element name="Bits">
+					<xs:complexType><xs:sequence>
+						<xs:element name="Bit" maxOccurs="unbounded">
+							<xs:complexType><xs:sequence>
+								<xs:element name="Name" type="xs:string" />
+								<xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1" />
+							</xs:sequence>
+								<xs:attribute name="ID" type="xs:NMTOKEN" use="required" />
+						</xs:complexType>
+						</xs:element>
+				</xs:sequence></xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="Width" type="xs:unsignedInt" use="optional" default="1" />
+			<xs:attribute name="ID" type="xs:NMTOKEN" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="EnumerationTypes">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="EnumerationType" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Name" type="xs:string" />
+							<xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1" />
+							<xs:element name="Options">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Option" maxOccurs="unbounded">
+											<xs:complexType><xs:sequence>
+												<xs:element name="Name" type="xs:string" />
+												<xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1" /></xs:sequence>
+												<xs:attribute name="ID" type="xs:NMTOKEN" use="required" />
+										</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="ID" type="xs:NMTOKEN" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Types">
+		<xs:complexType><xs:sequence>
+			<xs:element name="Type" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Name" type="xs:string" />
+						<xs:element name="CType" type="xs:string" />
+						<xs:element name="MaxWidth" type="xs:unsignedInt" minOccurs="0" maxOccurs="1" />
+						<xs:element name="MinWidth" type="xs:unsignedInt" minOccurs="0" maxOccurs="1" />
+						<xs:element name="DefaultWidth" type="xs:unsignedInt" minOccurs="0" maxOccurs="1" />
+						<xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1" />
+						<xs:element name="InvalidWidths" minOccurs="0" maxOccurs="1">
+							<xs:complexType><xs:sequence>
+								<xs:element name="InvalidWidth" type="xs:unsignedInt" maxOccurs="unbounded" />
+						</xs:sequence></xs:complexType>
+						</xs:element>
+						<xs:element name="ValidWidths" minOccurs="0" maxOccurs="1">
+							<xs:complexType><xs:sequence>
+								<xs:element name="ValidWidth" type="xs:unsignedInt" maxOccurs="unbounded" />
+						</xs:sequence></xs:complexType>
+						</xs:element>
+						<xs:element name="Values" minOccurs="0" maxOccurs="1">
+							<xs:complexType><xs:sequence>
+								<xs:element name="Value" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:simpleContent>
+											<xs:extension base="xs:NMTOKEN">
+												<xs:attribute name="ID" type="xs:NMTOKEN" use="required" />
+											</xs:extension>
+										</xs:simpleContent>
+									</xs:complexType>
+							</xs:element></xs:sequence>
 							</xs:complexType>
 						</xs:element>
-		   			   <xs:attribute name='ID' type='xs:NMTOKEN' use='required'/>
-   					   <xs:attribute name='Width' type='xs:unsignedInt' use='optional' default='1'/>
-				   	  </xs:complexType>
-				   </xs:element>
-			  </xs:complexType>
-		    </xs:element>
-  
-		   <xs:attribute name='ID' type='xs:NMTOKEN' use='required'/>
-   </xs:sequence></xs:complexType>
-	   </xs:element>
-  </xs:complexType>
- </xs:element>
-
- <xs:element name='Field'>
-  <xs:complexType>
-    <xs:element name='Name' type="xs:string" />
-    <xs:element name='Description' type="xs:string" minOccurs="0" maxOccurs="1" />
-   <xs:attribute name='ID' type='xs:NMTOKEN' use='required'/>
-   <xs:attribute name='Width' type='xs:unsignedInt' use='optional' default='1'/>
-   <xs:attribute name='Type' type='DataTypeID' use='required'/>
-   <xs:attribute name='SubType' type='SubType' use='optional'/>
-  </xs:complexType>
- </xs:element>
-
- <xs:element name='NRFPacket'>
-  <xs:complexType>
-   <xs:sequence>
-    <xs:element ref='Field' maxOccurs='unbounded'/>
-   </xs:sequence>
-  </xs:complexType>
- </xs:element>
-
-<xs:element name='Message'>
-  <xs:complexType>
-	<xs:element name='Flags'>
-		<xs:complexType>
-			   <xs:element name='Flag' maxOccurs='8' minOccurs='1'>
-				  <xs:complexType>
-				     <xs:simpleContent>
-				      <xs:extension base="xs:NMTOKEN">
-					<xs:attribute name='Mandatory' type='xs:boolean' use='optional'/>
-					<xs:attribute name='Negate' type='xs:boolean' use='optional'/>
-				      </xs:extension>
-				     </xs:simpleContent>
-				   </xs:complexType>
-			   </xs:element>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name='PayloadStructure'>
-		<xs:complexType>
-		<xs:sequence>
-    			<xs:element ref='Field' maxOccurs='unbounded'/>
-		</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-  <xs:attribute name='SubType' type='xs:NMTOKEN' use='optional'/>
-  </xs:complexType>
-
-</xs:element>
-
-<xs:element name='MessageType'>
-	<xs:complexType>
-		<xs:sequence>
-    <xs:element name='Name' type="xs:string" />
-    <xs:element name='Description' type="xs:string" minOccurs="0" maxOccurs="1"/>
-    <xs:element name='Messages'>
-	<xs:complexType>
-    			<xs:element ref='Message' maxOccurs='unbounded' minOccurs="1"/>
-	</xs:complexType>
-    </xs:element>
-    <xs:element name='SubTypes' minOccurs="0" maxOccurs="1">
-	<xs:complexType>
-    			<xs:element name='SubType' maxOccurs="unbounded">
-				<xs:complexType>
-				    <xs:element name='Name' type="xs:string" />
-				    <xs:element name='Description' type="xs:string" minOccurs="0" maxOccurs="1"/>
-   				<xs:attribute name='ID' type='xs:NMTOKEN' use='required'/>
-   				<xs:attribute name='SequenceOffset' type='xs:unsignedInt' use='optional'/>
+						<xs:element name="Attributes" minOccurs="0" maxOccurs="1">
+							<xs:complexType><xs:sequence>
+								<xs:element name="Attribute" maxOccurs="unbounded">
+									<xs:complexType><xs:all>
+										<xs:element name="Name" type="xs:string" />
+										<xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1" />
+										<xs:element name="ID" type="xs:string" minOccurs="0" maxOccurs="1" />
+										<xs:element name="Type" type="DataTypeID" minOccurs="0" maxOccurs="1" />
+										<xs:element name="SubType" type="SubType" minOccurs="0" maxOccurs="1" /></xs:all>
+										<xs:attribute name="ID" type="xs:NMTOKEN" use="required" />
+										<xs:attribute name="Type" type="DataTypeID" use="required" />
+									</xs:complexType>
+							</xs:element></xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="SubTypes" minOccurs="0" maxOccurs="1">
+							<xs:complexType><xs:sequence>
+								<xs:element name="SubType" maxOccurs="unbounded">
+									<xs:complexType><xs:all>
+										<xs:element name="Name" type="xs:string" />
+										<xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1" />
+										<xs:element name="CType" type="xs:string" />
+										<xs:element name="MandatoryAttributes" minOccurs="0" maxOccurs="1">
+											<xs:complexType><xs:sequence>
+												<xs:element name="MandatoryAttribute" type="xs:NMTOKEN" maxOccurs="unbounded" />
+										</xs:sequence></xs:complexType>
+									</xs:element></xs:all>
+										<xs:attribute name="ID" type="xs:NMTOKEN" use="required" />
+										<xs:attribute name="Width" type="xs:unsignedInt" use="optional" default="1" />
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+						<xs:attribute name="ID" type="xs:NMTOKEN" use="required" />
 				</xs:complexType>
 			</xs:element>
+	</xs:sequence></xs:complexType>
+	</xs:element>
+	<xs:element name="Field">
+		<xs:complexType>
+			<xs:sequence>
+			<xs:element name="Name" type="xs:string" />
+			<xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+			<xs:attribute name="ID" type="xs:NMTOKEN" use="required" />
+			<xs:attribute name="Width" type="xs:unsignedInt" use="optional" default="1" />
+			<xs:attribute name="Type" type="DataTypeID" use="required" />
+			<xs:attribute name="SubType" type="SubType" use="optional" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="NRFPacket">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Field" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Message">
+		<xs:complexType><xs:sequence>
+			<xs:element name="Flags">
+				<xs:complexType><xs:sequence>
+					<xs:element name="Flag" maxOccurs="8" minOccurs="1">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:extension base="xs:NMTOKEN">
+									<xs:attribute name="Mandatory" type="xs:boolean" use="optional" />
+									<xs:attribute name="Negate" type="xs:boolean" use="optional" />
+								</xs:extension>
+							</xs:simpleContent>
+						</xs:complexType>
+				</xs:element></xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PayloadStructure">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="Field" maxOccurs="unbounded" />
+					</xs:sequence>
+				</xs:complexType>
+		</xs:element></xs:sequence>
+			<xs:attribute name="SubType" type="xs:NMTOKEN" use="optional" />
 	</xs:complexType>
-</xs:element>
-</xs:sequence>
-   <xs:attribute name='ID' type='xs:NMTOKEN' use='required'/>
-  </xs:complexType>
-</xs:element>
-
-
-
- <xs:element name='MessageTypes'>
-  <xs:complexType>
-    <xs:element ref='MessageType' maxOccurs='unbounded'/>
-  </xs:complexType>
- </xs:element>
+	</xs:element>
+	<xs:element name="MessageType">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Name" type="xs:string" />
+				<xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="Messages">
+					<xs:complexType><xs:sequence>
+							<xs:element ref="Message" maxOccurs="unbounded" minOccurs="1" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="SubTypes" minOccurs="0" maxOccurs="1">
+					<xs:complexType><xs:sequence>
+						<xs:element name="SubType" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+								<xs:element name="Name" type="xs:string" />
+								<xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1" />
+							</xs:sequence>
+								<xs:attribute name="ID" type="xs:NMTOKEN" use="required" />
+								<xs:attribute name="SequenceOffset" type="xs:unsignedInt" use="optional" />
+							</xs:complexType>
+					</xs:element></xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="ID" type="xs:NMTOKEN" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MessageTypes">
+		<xs:complexType><xs:sequence>
+			<xs:element ref="MessageType" maxOccurs="unbounded" />
+	</xs:sequence></xs:complexType>
+	</xs:element>
 </xs:schema>
-
