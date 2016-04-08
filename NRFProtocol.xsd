@@ -278,26 +278,27 @@
 			<xs:sequence>
 				<xs:element name="Name" type="xs:string" />
 				<xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1" />
-				<xs:element name="Messages">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element ref="Message" maxOccurs="unbounded" minOccurs="1" />
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
 				<xs:element name="SubTypes" minOccurs="0" maxOccurs="1">
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="SubType" maxOccurs="unbounded">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="Name" type="xs:string" />
+										<xs:element name="Name" type="xs:string" minOccurs="0" maxOccurs="1" />
+										<!-- XXX TODO name isnt really optional -->
 										<xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1" />
 									</xs:sequence>
 									<xs:attribute name="ID" type="xs:NMTOKEN" use="required" />
 									<xs:attribute name="SequenceOffset" type="xs:unsignedInt" use="optional" />
 								</xs:complexType>
 							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Messages">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="Message" maxOccurs="unbounded" minOccurs="1" />
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
