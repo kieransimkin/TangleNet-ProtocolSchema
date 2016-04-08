@@ -115,15 +115,17 @@
 			<Description><![CDATA[
 
 			]]></Description>
-			<CType>uint8_t</CType>
+		<CType>uint8_t</CType>
+		<DefaultWidth>1</DefaultWidth>
+		<Constraints>
 			<MaxWidth>8</MaxWidth>
-			<DefaultWidth>1</DefaultWidth>
 			<InvalidWidths>
 				<InvalidWidth>3</InvalidWidth>
 				<InvalidWidth>5</InvalidWidth>
 				<InvalidWidth>6</InvalidWidth>
 				<InvalidWidth>7</InvalidWidth>
 			</InvalidWidths>
+		</Constraints>
 			<SubTypes>
 				<SubType ID="UINT16" Width="2">
 					<Name><![CDATA[UInt16]]></Name>
@@ -146,13 +148,15 @@
 			]]></Description>
 		
 			<CType>char[LENGTH+1]</CType>
+		<Constraints />
 		</Type>
 		<Type ID="BINARY">
 			<Name><![CDATA[Binary]]></Name>
 			<Description><![CDATA[
 
 			]]></Description>
-			<CType>uint8_t[LENGTH]</CType>
+		<CType>uint8_t[LENGTH]</CType>
+		<Constraints />
 		</Type>
 		<Type ID="ENUM">
 			<Name><![CDATA[Enumeration]]></Name>
@@ -160,11 +164,13 @@
 
 				]]></Description>
 			<CType>uint8_t</CType>
-			<MaxWidth>2</MaxWidth>
+			<DefaultWidth>1</DefaultWidth>
+			<Constraints>
+				<MaxWidth>2</MaxWidth>
+			</Constraints>
 			<Attributes>
 				<Attribute ID="SubType" Type="SubType"><References>Enumerations</References><Description>Enumeration</Description></Attribute>
 			</Attributes>
-			<DefaultWidth>1</DefaultWidth>
 			<SubTypes>
 				<SubType ID="WIDE_ENUM" Width="2"><CType>uint16_t</CType></SubType>
 			</SubTypes>
@@ -174,12 +180,14 @@
 			<Description><![CDATA[
 
 			]]></Description>
-			<MaxWidth>2</MaxWidth>
+			<CType>uint8_t</CType>
 			<DefaultWidth>1</DefaultWidth>
+			<Constraints>
+				<MaxWidth>2</MaxWidth>
+			</Constraints>
 			<Attributes>
 				<Attribute ID="SubType" Type="SubType"><References>BitfieldTypes</References><Description>Bitfield Type</Description></Attribute>
 			</Attributes>
-			<CType>uint8_t</CType>
 			<SubTypes>
 				<SubType ID="WIDE_BITFIELD" Width="2"><CType>uint16_t</CType></SubType>
 			</SubTypes>
@@ -190,8 +198,10 @@
 
 				]]></Description>
 			<CType>uint8_t[21]</CType>
+			<Constraints>
 			<MinWidth>21</MinWidth>
 			<MaxWidth>21</MaxWidth>
+		</Constraints>
 		</Type>
 		<Type ID="ECDSA_HALFSIGN">
 			<Name><![CDATA[ecdsaHalfSign]]></Name>
@@ -199,11 +209,13 @@
 
 				]]></Description>
 			<CType>uint8_t[20]</CType>
+			<Constraints>
+			<MinWidth>20</MinWidth>
+			<MaxWidth>20</MaxWidth>
+			</Constraints>
 			<Attributes>
 				<Attribute ID="Handedness" Type="ENUM"><ID>HANDEDNESS</ID><Description>Enumeration</Description></Attribute>
 			</Attributes>
-			<MinWidth>20</MinWidth>
-			<MaxWidth>20</MaxWidth>
 		</Type>
 		<Type ID="KNOT_LINK_ID">
 			<Name><![CDATA[KnotLinkID]]></Name>
@@ -211,8 +223,11 @@
 
 				]]></Description>
 			<CType>uint8_t[3]</CType>
+			<Constraints>
 			<MinWidth>3</MinWidth>
 			<MaxWidth>3</MaxWidth>
+			</Constraints>
+		</Constraints>
 		</Type>
 		<Type ID="SUBTYPE">
 			<Name><![CDATA[MessageSubtype]]></Name>
@@ -220,7 +235,9 @@
 
 				]]></Description>
 			<CType>uint8_t</CType>
+			<Constraints>
 			<MaxWidth>1</MaxWidth>
+			</Constraints>
 		</Type>
 		<Type ID="SEQUENCE">
 			<Name><![CDATA[Sequence]]></Name>
@@ -229,11 +246,13 @@
 				]]></Description>
 			<CType>uint8_t</CType>
 			<DefaultWidth>1</DefaultWidth>
+			<Constraints>
 			<MaxWidth>4</MaxWidth>
 			<InvalidWidths>
 				<InvalidWidth>2</InvalidWidth>
 				<InvalidWidth>3</InvalidWidth>
 			</InvalidWidths>
+			</Constraints>
 			<Attributes>
 				<Attribute ID="PaddingField" Type="FIELD"><Type>ENUM</Type><SubType>SEQUENCE_PADDING</SubType><Description></Description></Attribute>
 			</Attributes>
@@ -246,12 +265,14 @@
 			<Description><![CDATA[
 
 				]]></Description>
+			<CType>uint32_t</CType>
+			<DefaultWidth>4</DefaultWidth>
+			<Constraints>
 			<ValidWidths>
 				<ValidWidth>4</ValidWidth>
 				<ValidWidth>8</ValidWidth>
 			</ValidWidths>
-			<CType>uint32_t</CType>
-			<DefaultWidth>4</DefaultWidth>
+			</Constraints>
 			<Attributes>
 				<Attribute ID="PrecisionField" Type="FIELD"><Type>ENUM</Type><SubType>TIME_PRECISION</SubType><Description></Description></Attribute>
 				<Attribute ID="AccuracyField" Type="FIELD"><Type>BITFIELD</Type><SubType>TEMPORAL_ACCURACY</SubType><Description></Description></Attribute>
@@ -268,14 +289,16 @@
 			<Description><![CDATA[
 
 				]]></Description>
+			<CType>uint8_t</CType>
+			<DefaultWidth>1</DefaultWidth>
+			<Constraints>
 			<ValidWidths>
 				<ValidWidth>1</ValidWidth>
 				<ValidWidth>2</ValidWidth>
 				<ValidWidth>4</ValidWidth>
 				<ValidWidth>8</ValidWidth>
 			</ValidWidths>
-			<CType>uint8_t</CType>
-			<DefaultWidth>1</DefaultWidth>
+			</Constraints>
 			<Attributes>
 				<Attribute ID="FixedLength" Type="ENUM"><ID>TIMESPAN_LENGTH</ID><Description>Enumeration</Description></Attribute>
 				<Attribute ID="LengthField" Type="FIELD"><Type>ENUM</Type><SubType>TIMESPAN_LENGTH</SubType><Description></Description></Attribute>
@@ -305,10 +328,12 @@
 				]]></Description>
 			<MaxWidth>1</MaxWidth>
 			<CType>bool</CType>
+			<Constraints>
 			<Values>
 				<Value ID="0">False</Value>
 				<Value ID="1">True</Value>
 			</Values>
+			</Constraints>
 		</Type>
 	</Types>
 	<NRFPacket>

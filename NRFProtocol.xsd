@@ -132,43 +132,49 @@
 							<xs:element name="Name" type="xs:string" />
 							<xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1" />
 							<xs:element name="CType" type="xs:string" />
-							<xs:element name="MaxWidth" type="xs:unsignedInt" minOccurs="0" maxOccurs="1" />
-							<xs:element name="MinWidth" type="xs:unsignedInt" minOccurs="0" maxOccurs="1" />
-							<xs:element name="DefaultWidth" type="xs:unsignedInt" minOccurs="0" maxOccurs="1" />
-							<xs:element name="InvalidWidths" minOccurs="0" maxOccurs="1">
+							<xs:element name="DefaultWidth" type="xs:unsignedInt" minOccurs="0" maxOccurs="1" default="1" />
+							<xs:element name="Constraints">
 								<xs:complexType>
-									<xs:sequence>
-										<xs:element name="InvalidWidth" type="xs:unsignedInt" maxOccurs="unbounded" />
-									</xs:sequence>
-								</xs:complexType>
-							</xs:element>
-							<xs:element name="ValidWidths" minOccurs="0" maxOccurs="1">
-								<xs:complexType>
-									<xs:sequence>
-										<xs:element name="ValidWidth" type="xs:unsignedInt" maxOccurs="unbounded" />
-									</xs:sequence>
-								</xs:complexType>
-							</xs:element>
-							<xs:element name="Values" minOccurs="0" maxOccurs="1">
-								<xs:complexType>
-									<xs:sequence>
-										<xs:element name="Value" maxOccurs="unbounded">
-											<xs:complexType>
-												<xs:simpleContent>
-													<xs:extension base="xs:NMTOKEN">
-														<xs:attribute name="ID" type="xs:NMTOKEN" use="required" />
-													</xs:extension>
-												</xs:simpleContent>
-											</xs:complexType>
-										</xs:element>
-									</xs:sequence>
+									<xs:all>
+									<xs:element name="MaxWidth" type="xs:unsignedInt" minOccurs="0" maxOccurs="1" />
+									<xs:element name="MinWidth" type="xs:unsignedInt" minOccurs="0" maxOccurs="1" />
+									<xs:element name="InvalidWidths" minOccurs="0" maxOccurs="1">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="InvalidWidth" type="xs:unsignedInt" maxOccurs="unbounded" />
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="ValidWidths" minOccurs="0" maxOccurs="1">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ValidWidth" type="xs:unsignedInt" maxOccurs="unbounded" />
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Values" minOccurs="0" maxOccurs="1">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Value" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:simpleContent>
+															<xs:extension base="xs:NMTOKEN">
+																<xs:attribute name="ID" type="xs:NMTOKEN" use="required" />
+															</xs:extension>
+														</xs:simpleContent>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									</xs:all>
 								</xs:complexType>
 							</xs:element>
 							<xs:element name="Attributes" minOccurs="0" maxOccurs="1">
 								<xs:complexType>
 									<xs:sequence>
 										<xs:element name="Attribute" maxOccurs="unbounded">
-											<xs:complexType name="TypeAttribute">
+											<xs:complexType>
 												<xs:all>
 													<xs:element name="Name" type="xs:string" minOccurs="0" maxOccurs="1"/>
 													<!-- XXX TODO Name is required really -->
@@ -189,7 +195,7 @@
 								<xs:complexType>
 									<xs:sequence>
 										<xs:element name="SubType" maxOccurs="unbounded">
-											<xs:complexType name="DataTypeSubType">
+											<xs:complexType>
 												<xs:all>
 													<xs:element name="Name" type="xs:string" minOccurs="0" maxOccurs="1" />
 													<!-- XXX TODO Name is required really -->
@@ -282,7 +288,7 @@
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="SubType" maxOccurs="unbounded">
-								<xs:complexType name="MessageTypeSubType">
+								<xs:complexType>
 									<xs:sequence>
 										<xs:element name="Name" type="xs:string" />
 										<xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1" />
