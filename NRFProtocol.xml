@@ -325,9 +325,9 @@
 			<Description><![CDATA[
 
 				]]></Description>
-			<MaxWidth>1</MaxWidth>
 			<CType>bool</CType>
 			<Constraints>
+			<MaxWidth>1</MaxWidth>
 			<Values>
 				<Value ID="0">False</Value>
 				<Value ID="1">True</Value>
@@ -452,11 +452,11 @@
 
 			]]></Description>
 			<SubTypes>
-				<SubType ID="START"><Description></Description></SubType>
-				<SubType ID="END"><Description></Description></SubType>
+				<SubType ID="START" SequenceOffset="0"><Description></Description></SubType>
+				<SubType ID="END" SequenceOffset="1"><Description></Description></SubType>
 			</SubTypes>
 			<Messages>
-				<Message SubType="START" SequenceOffset="0">
+				<Message SubType="START">
 					<Flags>
 						<Flag Mandatory="true">BEGIN</Flag>
 						<Flag Mandatory="true" Negate="true">END</Flag>
@@ -470,7 +470,7 @@
 						<Field ID="Signature" Width="20" Type="ECDSA_HALFSIGN" Handedness="Left"><Description></Description></Field>
 					</PayloadStructure>
 				</Message>
-				<Message SubType="END" SequenceOffset="1">
+				<Message SubType="END">
 					<Flags>
 						<Flag Mandatory="true" Negate="true">BEGIN</Flag>
 						<Flag Mandatory="true">END</Flag>
@@ -492,11 +492,11 @@
 
 			]]></Description>
 			<SubTypes>
-				<SubType ID="START"><Description></Description></SubType>
-				<SubType ID="END"><Description></Description></SubType>
+				<SubType ID="START" SequenceOffset="0"><Description></Description></SubType>
+				<SubType ID="END" SequenceOffset="1"><Description></Description></SubType>
 			</SubTypes>
 			<Messages>
-				<Message SubType="START" SequenceOffset="0">
+				<Message SubType="START">
 					<Flags>
 						<Flag Mandatory="true">BEGIN</Flag>
 						<Flag Mandatory="true" Negate="true">END</Flag>
@@ -512,7 +512,7 @@
 						<Field ID="Signature" Width="20" Type="ECDSA_HALFSIGN" Handedness="Left"><Description></Description></Field>
 					</PayloadStructure>
 				</Message>
-				<Message SubType="END" SequenceOffset="1">
+				<Message SubType="END">
 					<Flags>
 						<Flag Mandatory="true" Negate="true">BEGIN</Flag>
 						<Flag Mandatory="true">END</Flag>
@@ -572,10 +572,9 @@
 			<Description><![CDATA[
 
 			]]></Description>
-		</MessageType>
+	</MessageType>
+	<!--
 		<MessageType ID="ASTRAY">
-			
-
 			<Messages>
 			</Messages>
 			<Description><![CDATA[
@@ -698,6 +697,6 @@
 			<Description><![CDATA[
 
 			]]></Description>
-		</MessageType>
+		</MessageType>-->
 	</MessageTypes>
 </NRFProtocol>
