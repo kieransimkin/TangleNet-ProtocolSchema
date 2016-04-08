@@ -421,7 +421,7 @@
 						<Field ID="SubType" Width="1" Type="SUBTYPE"><Description></Description></Field>
 						<Field ID="OldKnotLinkID" Width="3" Type="KNOT_LINK_ID"><Description></Description></Field>
 						<Field ID="NewKnotLinkID" Width="3" Type="KNOT_LINK_ID"><Description></Description></Field>
-						<Field ID="Participant" width="1" Type="ENUM" SubType="COLLISION_PARTICIPANT"><Description></Description></Field>
+						<Field ID="Participant" Width="1" Type="ENUM" SubType="COLLISION_PARTICIPANT"><Description></Description></Field>
 					</PayloadStructure>
 				</Message>
 			</Messages>
@@ -440,7 +440,7 @@
 					<PayloadStructure>
 						<Field ID="KnotLinkID" Width="3" Type="KNOT_LINK_ID"><Description></Description></Field>
 						<Field ID="SequenceStart" Width="4" Type="SEQUENCE" PaddingField="Padding"><Description></Description></Field>
-						<Field ID="Padding" width="1" Type="ENUM" SubType="SEQUENCE_PADDING"><Description></Description></Field>
+						<Field ID="Padding" Width="1" Type="ENUM" SubType="SEQUENCE_PADDING"><Description></Description></Field>
 						<Field ID="Count" Width="1" Type="UINT"><Description></Description></Field>
 					</PayloadStructure>
 				</Message>
@@ -466,7 +466,7 @@
 					<PayloadStructure>
 						<Field ID="KnotLinkID" Width="3" Type="KNOT_LINK_ID"><Description></Description></Field>
 						<Field ID="Sequence" Width="1" Type="SEQUENCE" PaddingField="Padding"><Description></Description></Field>
-						<Field ID="Padding" width="1" Type="ENUM" SubType="SEQUENCE_PADDING"><Description></Description></Field>
+						<Field ID="Padding" Width="1" Type="ENUM" SubType="SEQUENCE_PADDING"><Description></Description></Field>
 						<Field ID="Signature" Width="20" Type="ECDSA_HALFSIGN" Handedness="Left"><Description></Description></Field>
 					</PayloadStructure>
 				</Message>
@@ -480,7 +480,7 @@
 					<PayloadStructure>
 						<Field ID="KnotLinkID" Width="3" Type="KNOT_LINK_ID"><Description></Description></Field>
 						<Field ID="Sequence" Width="1" Type="SEQUENCE" PaddingField="Padding"><Description></Description></Field>
-						<Field ID="Padding" width="1" Type="ENUM" SubType="SEQUENCE_PADDING"><Description></Description></Field>
+						<Field ID="Padding" Width="1" Type="ENUM" SubType="SEQUENCE_PADDING"><Description></Description></Field>
 						<Field ID="Signature" Width="20" Type="ECDSA_HALFSIGN" Handedness="Right"><Description></Description></Field>
 					</PayloadStructure>
 				</Message>
@@ -507,7 +507,7 @@
 					<PayloadStructure>
 						<Field ID="KnotLinkID" Width="3" Type="KNOT_LINK_ID"><Description></Description></Field>
 						<Field ID="SequenceStart" Width="1" Type="SEQUENCE" PaddingField="Padding"><Description></Description></Field>
-						<Field ID="Padding" width="1" Type="ENUM" SubType="SEQUENCE_PADDING"><Description></Description></Field>
+						<Field ID="Padding" Width="1" Type="ENUM" SubType="SEQUENCE_PADDING"><Description></Description></Field>
 						<Field ID="Count" Width="1" Type="UINT"><Description></Description></Field>
 						<Field ID="Signature" Width="20" Type="ECDSA_HALFSIGN" Handedness="Left"><Description></Description></Field>
 					</PayloadStructure>
@@ -523,7 +523,7 @@
 					<PayloadStructure>
 						<Field ID="KnotLinkID" Width="3" Type="KNOT_LINK_ID"><Description></Description></Field>
 						<Field ID="SequenceStart" Width="1" Type="SEQUENCE" PaddingField="Padding"><Description></Description></Field>
-						<Field ID="Padding" width="1" Type="ENUM" SubType="SEQUENCE_PADDING"><Description></Description></Field>
+						<Field ID="Padding" Width="1" Type="ENUM" SubType="SEQUENCE_PADDING"><Description></Description></Field>
 						<Field ID="Count" Width="1" Type="UINT"><Description></Description></Field>
 						<Field ID="Signature" Width="20" Type="ECDSA_HALFSIGN" Handedness="Right"><Description></Description></Field>
 					</PayloadStructure>
@@ -543,9 +543,9 @@
 						<Flag>ECHO</Flag>
 					</Flags>
 					<PayloadStructure>
-						<Field ID="Fussiness" width="1" Type="BITFIELD" SubType="TEMPORAL_ACCURACY"><Description></Description></Field>
-						<Field ID="TimeAway" width="4" Type="UINT"><Description></Description></Field>
-						<Field ID="CurrentGuess" width="8" Type="UINT"><Description></Description></Field>
+						<Field ID="Fussiness" Width="1" Type="BITFIELD" SubType="TEMPORAL_ACCURACY"><Description></Description></Field>
+						<Field ID="TimeAway" Width="4" Type="UINT"><Description></Description></Field>
+						<Field ID="CurrentGuess" Width="8" Type="UINT"><Description></Description></Field>
 					</PayloadStructure>
 				</Message>
 			</Messages>
@@ -564,8 +564,8 @@
 					</Flags>
 					<PayloadStructure>
 						<Field ID="KnotLinkID" Width="3" Type="KNOT_LINK_ID"><Description></Description></Field>
-						<Field ID="Timestamp" width="8" Type="UINT"><Description></Description></Field>
-						<Field ID="Accuracy" width="1" Type="BITFIELD" SubType="TEMPORAL_ACCURACY"><Description></Description></Field>
+						<Field ID="Timestamp" Width="8" Type="UINT"><Description></Description></Field>
+						<Field ID="Accuracy" Width="1" Type="BITFIELD" SubType="TEMPORAL_ACCURACY"><Description></Description></Field>
 					</PayloadStructure>
 				</Message>
 			</Messages>
