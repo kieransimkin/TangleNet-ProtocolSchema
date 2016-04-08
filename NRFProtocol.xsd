@@ -115,10 +115,10 @@
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
+			<xs:attribute name="ID" type="xs:NMTOKEN" use="required" />
 					</xs:complexType>
 				</xs:element>
 			</xs:sequence>
-			<xs:attribute name="ID" type="xs:NMTOKEN" use="required" />
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="Types">
