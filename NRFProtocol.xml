@@ -159,11 +159,11 @@
 			<Description><![CDATA[
 
 				]]></Description>
+			<CType>uint8_t</CType>
 			<MaxWidth>2</MaxWidth>
 			<Attributes>
 				<Attribute ID="SubType" Type="SubType"><References>Enumerations</References><Description>Enumeration</Description></Attribute>
 			</Attributes>
-			<CType>uint8_t</CType>
 			<DefaultWidth>1</DefaultWidth>
 			<SubTypes>
 				<SubType ID="WIDE_ENUM" Width="2"><CType>uint16_t</CType></SubType>
