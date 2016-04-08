@@ -227,7 +227,6 @@
 			<MinWidth>3</MinWidth>
 			<MaxWidth>3</MaxWidth>
 			</Constraints>
-		</Constraints>
 		</Type>
 		<Type ID="SUBTYPE">
 			<Name><![CDATA[MessageSubtype]]></Name>
