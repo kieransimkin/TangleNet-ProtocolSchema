@@ -161,7 +161,7 @@
 				]]></Description>
 			<MaxWidth>2</MaxWidth>
 			<Attributes>
-				<Attribute ID="SubType"><References>Enumerations</References><Description>Enumeration</Description></Attribute>
+				<Attribute ID="SubType" Type="SubType"><References>Enumerations</References><Description>Enumeration</Description></Attribute>
 			</Attributes>
 			<CType>uint8_t</CType>
 			<DefaultWidth>1</DefaultWidth>
@@ -177,7 +177,7 @@
 			<MaxWidth>2</MaxWidth>
 			<DefaultWidth>1</DefaultWidth>
 			<Attributes>
-				<Attribute ID="SubType"><References>BitfieldTypes</References><Description>Bitfield Type</Description></Attribute>
+				<Attribute ID="SubType" Type="SubType"><References>BitfieldTypes</References><Description>Bitfield Type</Description></Attribute>
 			</Attributes>
 			<CType>uint8_t</CType>
 			<SubTypes>
