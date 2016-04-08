@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NRFProtocol noNamespaceSchemaLocation="NRFProtocol.xsd">
+	<BitfieldTypes>
+		<BitfieldType ID="MESSAGE_FLAGS" Width="1">
+			<Name><![CDATA[MessageFlags]]></Name>
+			<Description><![CDATA[
+
+			]]></Description>
+			<Bits>
+				<Bit ID="BEGIN"><Description></Description></Bit>
+				<Bit ID="END"><Description></Description></Bit>
+				<Bit ID="ECHO"><Description></Description></Bit>
+				<Bit ID="SIGNED"><Description></Description></Bit>
+				<Bit ID="RETRANSMIT"><Description></Description></Bit>
+				<Bit ID="FORWARDED"><Description></Description></Bit>
+				<Bit ID="CHRONICLE"><Description></Description></Bit>
+				<Bit ID="PLEASE_SIGN"><Description></Description></Bit>
+			</Bits>
+		</BitfieldType>
+		<BitfieldType ID="TEMPORAL_ACCURACY" Width="1">
+			<Name><![CDATA[TemporalAccuracy]]></Name>
+			<Description><![CDATA[
+
+			]]></Description>
+			<Bits>
+				<Bit ID="RTC"><Description></Description></Bit>
+				<Bit ID="TCXO"><Description></Description></Bit>
+				<Bit ID="NTP"><Description></Description></Bit>
+				<Bit ID="GPS"><Description></Description></Bit>
+				<Bit ID="RF"><Description></Description></Bit>
+				<Bit ID="RUBIDIUM"><Description></Description></Bit>
+				<Bit ID="CAESEUM"><Description></Description></Bit>
+				<Bit ID="TIMELORD"><Description></Description></Bit>
+			</Bits>
+		</BitfieldType>
+		<BitfieldType ID="SPACIAL_ACCURACY" Width="1">
+			<Name><![CDATA[SpacialAccuracy]]></Name>
+			<Description><![CDATA[
+
+			]]></Description>
+			<Bits>
+				<Bit ID="GPS"><Description></Description></Bit>
+				<Bit ID="WIFI"><Description></Description></Bit>
+				<Bit ID="DEDUCED"><Description></Description></Bit>
+				<Bit ID="CONFIRMED"><Description></Description></Bit>
+				<Bit ID="CELESTIAL"><Description></Description></Bit>
+				<Bit ID="MAGNETIC"><Description></Description></Bit>
+				<Bit ID="ACCELEROMETER"><Description></Description></Bit>
+				<Bit ID="KNOWN_FIXED"><Description></Description></Bit>
+			</Bits>
+		</BitfieldType>
+	</BitfieldTypes>
+	<Enumerations>
+		<Enumeration ID="COLLISION_PARTICIPANT">
+			<Name><![CDATA[CollisionParticipant]]></Name>
+			<Description><![CDATA[
+
+			]]></Description>
+			<Option ID="IMPOSTOR"><Description></Description></Option>
+			<Option ID="VICTIM"><Description></Description></Option>
+		</Enumeration>
+		<Enumeration ID="HANDEDNESS">
+			<Name><![CDATA[Handedness]]></Name>
+			<Description><![CDATA[
+
+			]]></Description>
+			<Option ID="LEFT"><Description></Description></Option>
+			<Option ID="RIGHT"><Description></Description></Option>
+		</Enumeration>
+		<Enumeration ID="SEQUENCE_PADDING">
+			<Name><![CDATA[SequencePadding]]></Name>
+			<Description><![CDATA[
+
+			]]></Description>
+			<Option ID="FULL_SEQUENCE_UNKNOWN"><Description></Description></Option>
+			<Option ID="FULL_SEQUENCE"><Description></Description></Option>
+		</Enumeration>
+		<Enumeration ID="TIMESPAN_LENGTH">
+			<Name><![CDATA[TimespanLength]]></Name>
+			<Description><![CDATA[
+
+			]]></Description>
+			<Option ID="MILLISECONDS"><Description></Description></Option>"
+			<Option ID="SECONDS"><Description></Description></Option>"
+			<Option ID="HOURS"><Description></Description></Option>"
+			<Option ID="DAYS"><Description></Description></Option>"
+			<Option ID="WEEKS"><Description></Description></Option>"
+			<Option ID="MONTHS"><Description></Description></Option>"
+			<Option ID="YEARS"><Description></Description></Option>"
+			<Option ID="TICKS"><Description></Description></Option>"
+		</Enumeration>
+		<Enumeration ID="TIME_PRECISION">
+			<Name><![CDATA[TimePrecision]]></Name>
+			<Description><![CDATA[
+
+			]]></Description>
+			<Option ID="MICROSECONDS"><Description></Description></Option>
+			<Option ID="MILLISECONDS"><Description></Description></Option>
+			<Option ID="SECONDS"><Description></Description></Option>
+		</Enumeration>
+	</Enumerations>
+	<Types>
+		<Type ID="UINT">
+			<Name><![CDATA[UInt]]></Name>
+			<Description><![CDATA[
+
+			]]></Description>
+			<CType>uint8_t</CType>
+			<MaxWidth>8</MaxWidth>
+			<DefaultWidth>1</DefaultWidth>
+			<InvalidWidths>
+				<InvalidWidth>3</InvalidWidth>
+				<InvalidWidth>5</InvalidWidth>
+				<InvalidWidth>6</InvalidWidth>
+				<InvalidWidth>7</InvalidWidth>
+			</InvalidWidths>
+			<SubTypes>
+				<SubType ID="UINT16" Width="2">
+					<Name><![CDATA[UInt16]]></Name>
+					<CType>uint16_t</CType>
+				</SubType>
+				<SubType ID="UINT32" Width="4">
+					<Name><![CDATA[UInt32]]></Name>
+					<CType>uint32_t</CType>
+				</SubType>
+				<SubType ID="UINT64" Width="8">
+					<Name><![CDATA[UInt64]]></Name>
+					<CType>uint64_t</CType>
+				</SubType>
+			</SubTypes>
+		</Type>
+		<Type ID="STRING">
+			<Name><![CDATA[String]]></Name>
+			<Description><![CDATA[
+
+			]]></Description>
+		
+			<CType>char[LENGTH+1]</CType>
+		</Type>
+		<Type ID="BINARY">
+			<Name><![CDATA[Binary]]></Name>
+			<Description><![CDATA[
+
+			]]></Description>
+			<CType>uint8_t[LENGTH]</CType>
+		</Type>
+		<Type ID="ENUM">
+			<Name><![CDATA[Enumeration]]></Name>
+			<Description><![CDATA[
+
+				]]></Description>
+			<MaxWidth>2</MaxWidth>
+			<Attributes>
+				<Attribute ID="SubType"><References>Enumerations</References><Description>Enumeration</Description></Attribute>
+			</Attributes>
+			<CType>uint8_t</CType>
+			<DefaultWidth>1</DefaultWidth>
+			<SubTypes>
+				<SubType ID="WIDE_ENUM" Width="2"><CType>uint16_t</CType></SubType>
+			</SubTypes>
+		</Type>
+		<Type ID="BITFIELD">
+			<Name><![CDATA[Bitfield]]></Name>
+			<Description><![CDATA[
+
+			]]></Description>
+			<MaxWidth>2</MaxWidth>
+			<DefaultWidth>1</DefaultWidth>
+			<Attributes>
+				<Attribute ID="SubType"><References>BitfieldTypes</References><Description>Bitfield Type</Description></Attribute>
+			</Attributes>
+			<CType>uint8_t</CType>
+			<SubTypes>
+				<SubType ID="WIDE_BITFIELD" Width="2"><CType>uint16_t</CType></SubType>
+			</SubTypes>
+		</Type>
+		<Type ID="ECDSA_PUBLIC">
+			<Name><![CDATA[ecdsaPublic]]></Name>
+			<Description><![CDATA[
+
+				]]></Description>
+			<MinWidth>21</MinWidth>
+			<MaxWidth>21</MaxWidth>
+			<CType>uint8_t[21]</CType>
+		</Type>
+		<Type ID="ECDSA_HALFSIGN">
+			<Name><![CDATA[ecdsaHalfSign]]></Name>
+			<Description><![CDATA[
+
+				]]></Description>
+			<Attributes>
+				<Attribute ID="Handedness" Type="ENUM"><ID>HANDEDNESS</ID><Description>Enumeration</Description></Attribute>
+			</Attributes>
+			<MinWidth>20</MinWidth>
+			<MaxWidth>20</MaxWidth>
+			<CType>uint8_t[20]</CType>
+		</Type>
+		<Type ID="KNOT_LINK_ID">
+			<Name><![CDATA[KnotLinkID]]></Name>
+			<Description><![CDATA[
+
+				]]></Description>
+			<MinWidth>3</MinWidth>
+			<MaxWidth>3</MaxWidth>
+			<CType>uint8_t[3]</CType>
+		</Type>
+		<Type ID="SUBTYPE">
+			<Name><![CDATA[MessageSubtype]]></Name>
+			<Description><![CDATA[
+
+				]]></Description>
+			<CType>uint8_t</CType>
+			<MaxWidth>1</MaxWidth>
+		</Type>
+		<Type ID="SEQUENCE">
+			<Name><![CDATA[Sequence]]></Name>
+			<Description><![CDATA[
+
+				]]></Description>
+			<CType>uint8_t</CType>
+			<DefaultWidth>1</DefaultWidth>
+			<MaxWidth>4</MaxWidth>
+			<InvalidWidths>
+				<InvalidWidth>2</InvalidWidth>
+				<InvalidWidth>3</InvalidWidth>
+			</InvalidWidths>
+			<Attributes>
+				<Attribute ID="PaddingField" Type="FIELD"><Type>ENUM</Type><SubType>SEQUENCE_PADDING</SubType><Description></Description></Attribute>
+			</Attributes>
+			<SubTypes>
+				<SubType ID="FULL_SEQUENCE" Width="4"><CType>uint32_t</CType></SubType>
+			</SubTypes>
+		</Type>
+		<Type ID="TIMESTAMP">
+			<Name><![CDATA[Timestamp]]></Name>
+			<Description><![CDATA[
+
+				]]></Description>
+			<ValidWidths>
+				<ValidWidth>4</ValidWidth>
+				<ValidWidth>8</ValidWidth>
+			</ValidWidths>
+			<CType>uint32_t</CType>
+			<DefaultWidth>4</DefaultWidth>
+			<Attributes>
+				<Attribute ID="PrecisionField" Type="FIELD"><Type>ENUM</Type><SubType>TIME_PRECISION</SubType><Description></Description></Attribute>
+				<Attribute ID="AccuracyField" Type="FIELD"><Type>BITFIELD</Type><SubType>TEMPORAL_ACCURACY</SubType><Description></Description></Attribute>
+			</Attributes>
+			<SubTypes>
+				<SubType ID="WIDE_TIMESTAMP" Width="8"><CType>uint64_t</CType></SubType>
+				<SubType ID="PRECISE_TIMESTAMP" Width="8"><CType>uint64_t</CType></SubType>
+				<SubType ID="VARIABLE_WIDE_TIMESTAMP" Width="8"><CType>uint64_t</CType><MandatoryAttributes><Attribute>PrecisionField</Attribute></MandatoryAttributes></SubType>
+				<SubType ID="VARIABLE_TIMESTAMP" Width="4"><CType>uint64_t</CType><MandatoryAttributes><Attribute>PrecisionField</Attribute></MandatoryAttributes></SubType>
+			</SubTypes>
+		</Type>
+		<Type ID="TIMESPAN">
+			<Name><![CDATA[Timespan]]></Name>
+			<Description><![CDATA[
+
+				]]></Description>
+			<ValidWidths>
+				<ValidWidth>1</ValidWidth>
+				<ValidWidth>2</ValidWidth>
+				<ValidWidth>4</ValidWidth>
+				<ValidWidth>8</ValidWidth>
+			</ValidWidths>
+			<CType>uint8_t</CType>
+			<DefaultWidth>1</DefaultWidth>
+			<Attributes>
+				<Attribute ID="FixedLength" Type="ENUM"><ID>TIMESPAN_LENGTH</ID><Description>Enumeration</Description></Attribute>
+				<Attribute ID="LengthField" Type="FIELD"><Type>ENUM</Type><SubType>TIMESPAN_LENGTH</SubType><Description></Description></Attribute>
+				<Attribute ID="PrecisionField" Type="FIELD"><Type>ENUM</Type><SubType>TIME_PRECISION</SubType><Description></Description></Attribute>
+				<Attribute ID="FixedPrecision" Type="ENUM"><ID>TIME_PRECISION</ID><Description></Description></Attribute>
+				<Attribute ID="AccuracyField" Type="FIELD"><Type>BITFIELD</Type><SubType>TEMPORAL_ACCURACY</SubType><Description></Description></Attribute>
+			</Attributes>
+			<SubTypes>
+				<SubType ID="TIMESPAN" Width="1"><CType>uint8_t</CType><MandatoryAttributes><Attribute>LengthField</Attribute></MandatoryAttributes></SubType>
+				<SubType ID="TIMESPAN16" Width="2"><CType>uint16_t</CType><MandatoryAttributes><Attribute>LengthField</Attribute></MandatoryAttributes></SubType>
+				<SubType ID="TIMESPAN32" Width="4"><CType>uint32_t</CType><MandatoryAttributes><Attribute>LengthField</Attribute></MandatoryAttributes></SubType>
+				<SubType ID="TIMESPAN64" Width="8"><CType>uint64_t</CType><MandatoryAttributes><Attribute>LengthField</Attribute></MandatoryAttributes></SubType>
+				<SubType ID="SECONDS" Width="4"><CType>uint32_t</CType></SubType>
+				<SubType ID="SHORT_SECONDS" Width="1"><CType>uint8_t</CType></SubType>
+				<SubType ID="MINUTES" Width="4"><CType>uint32_t</CType></SubType>
+				<SubType ID="SHORT_MINUTES" Width="1"><CType>uint8_t</CType></SubType>
+				<SubType ID="HOURS" Width="4"><CType>uint32_t</CType></SubType>
+				<SubType ID="SHORT_HOURS" Width="1"><CType>uint8_t</CType></SubType>
+				<SubType ID="DAYS" Width="4"><CType>uint32_t</CType></SubType>
+				<SubType ID="SHORT_DAYS" Width="1"><CType>uint8_t</CType></SubType>
+			</SubTypes>
+		</Type>
+		<Type ID="BOOL">
+			<Name><![CDATA[Boolean]]></Name>
+			<Description><![CDATA[
+
+				]]></Description>
+			<MaxWidth>1</MaxWidth>
+			<CType>bool</CType>
+			<Values>
+				<Value ID="0">False</Value>
+				<Value ID="1">True</Value>
+			</Values>
+		</Type>
+	</Types>
+	<NRFPacket>
+		<Field ID="MessageType" Width="1" Type="ENUM" SubType="MESSAGE_TYPE"><Description></Description></Field>
+		<Field ID="Sequence" Width="1" Type="SEQUENCE"><Description></Description></Field>
+		<Field ID="Flags" Width="1" Type="BITFIELD" SubType="MESSAGE_FLAGS"><Description></Description></Field>
+		<Field ID="KnotLinkID" Width="3" Type="KNOT_LINK_ID"><Description></Description></Field>
+		<Field ID="Payload" Width="26" Type="BINARY"><Description></Description></Field>
+	</NRFPacket>
+	<MessageTypes>
+		<MessageType ID="SMILE">
+			<Name><![CDATA[Smile]]></Name>
+			<Description><![CDATA[
+
+			]]></Description>
+			<Messages>
+				<Message>
+					<Flags>
+						<Flag Mandatory="true">BEGIN</Flag>
+						<Flag Mandatory="true">END</Flag>
+						<Flag>ECHO</Flag>
+						<Flag>SIGNED</Flag>
+						<Flag>PLEASE_SIGN</Flag>
+					</Flags>
+					<PayloadStructure>
+						<Field ID="PublicKey" Width="21" Type="ECDSA_PUBLIC"><Description></Description></Field>
+						<Field ID="ProtocolVersion" Width="1" Type="UINT"><Description></Description></Field>
+						<Field ID="FullSequence" Width="4" Type="SEQUENCE"><Description></Description></Field>
+					</PayloadStructure>
+				</Message>
+			</Messages>
+		</MessageType>
+		<MessageType ID="NOD">
+			<Name><![CDATA[Nod]]></Name>
+			<Description><![CDATA[
+
+			]]></Description>
+			<Messages>
+				<Message>
+					<Flags>
+						<Flag Mandatory="true">BEGIN</Flag>
+						<Flag Mandatory="true">END</Flag>
+						<Flag>SIGNED</Flag>
+						<Flag>PLEASE_SIGN</Flag>
+					</Flags>
+					<PayloadStructure>
+						<Field ID="KnotLinkID" Width="3" Type="KNOT_LINK_ID"><Description></Description></Field>
+						<Field ID="Sequence" Width="1" Type="SEQUENCE"><Description></Description></Field>
+						<Field ID="PublicKey" Width="21" Type="ECDSA_PUBLIC"><Description></Description></Field>
+						<Field ID="ProtocolVersion" Width="1" Type="UINT"><Description></Description></Field>
+					</PayloadStructure>
+				</Message>
+			</Messages>
+		</MessageType>
+		<MessageType ID="COLLISION">
+			<Name><![CDATA[Collision]]></Name>
+			<Description><![CDATA[
+
+			]]></Description>
+			<SubTypes>
+				<SubType ID="BANG"><Description></Description></SubType>
+				<SubType ID="FALLOUT"><Description></Description></SubType>
+			</SubTypes>
+			<Messages>
+				<Message SubType="BANG">
+					<Flags>
+						<Flag Mandatory="true">BEGIN</Flag>
+						<Flag Mandatory="true">END</Flag>
+						<Flag>SIGNED</Flag>
+						<Flag>RETRANSMIT</Flag>
+					</Flags>
+					<PayloadStructure>
+						<Field ID="SubType" Width="1" Type="SUBTYPE"><Description></Description></Field>
+						<Field ID="KnotLinkID" Width="3" Type="KNOT_LINK_ID"><Description></Description></Field>
+						<Field ID="PublicKey" Width="21" Type="ECDSA_PUBLIC"><Description></Description></Field>
+					</PayloadStructure>
+				</Message>
+				<Message SubType="FALLOUT">
+					<Flags>
+						<Flag Mandatory="true">BEGIN</Flag>
+						<Flag Mandatory="true">END</Flag>
+						<Flag>SIGNED</Flag>
+						<Flag>RETRANSMIT</Flag>
+					</Flags>
+					<PayloadStructure>
+						<Field ID="SubType" Width="1" Type="SUBTYPE"><Description></Description></Field>
+						<Field ID="OldKnotLinkID" Width="3" Type="KNOT_LINK_ID"><Description></Description></Field>
+						<Field ID="NewKnotLinkID" Width="3" Type="KNOT_LINK_ID"><Description></Description></Field>
+						<Field ID="Participant" width="1" Type="ENUM" SubType="COLLISION_PARTICIPANT"><Description></Description></Field>
+					</PayloadStructure>
+				</Message>
+			</Messages>
+		</MessageType>
+		<MessageType ID="RESEND">
+			<Name><![CDATA[Resend]]></Name>
+			<Description><![CDATA[
+
+			]]></Description>
+			<Messages>
+				<Message>
+					<Flags>
+						<Flag Mandatory="true">BEGIN</Flag>
+						<Flag Mandatory="true">END</Flag>
+					</Flags>
+					<PayloadStructure>
+						<Field ID="KnotLinkID" Width="3" Type="KNOT_LINK_ID"><Description></Description></Field>
+						<Field ID="SequenceStart" Width="4" Type="SEQUENCE" PaddingField="Padding"><Description></Description></Field>
+						<Field ID="Padding" width="1" Type="ENUM" SubType="SEQUENCE_PADDING"><Description></Description></Field>
+						<Field ID="Count" Width="1" Type="UINT"><Description></Description></Field>
+					</PayloadStructure>
+				</Message>
+			</Messages>
+		</MessageType>
+		<MessageType ID="SIGN">
+			<Name><![CDATA[Sign]]></Name>
+			<Description><![CDATA[
+
+			]]></Description>
+			<SubTypes>
+				<SubType ID="START"><Description></Description></SubType>
+				<SubType ID="END"><Description></Description></SubType>
+			</SubTypes>
+			<Messages>
+				<Message SubType="START" SequenceOffset="0">
+					<Flags>
+						<Flag Mandatory="true">BEGIN</Flag>
+						<Flag Mandatory="true" Negate="true">END</Flag>
+						<Flag>SIGNED</Flag>
+						<Flag>PLEASE_SIGN</Flag>
+					</Flags>
+					<PayloadStructure>
+						<Field ID="KnotLinkID" Width="3" Type="KNOT_LINK_ID"><Description></Description></Field>
+						<Field ID="Sequence" Width="1" Type="SEQUENCE" PaddingField="Padding"><Description></Description></Field>
+						<Field ID="Padding" width="1" Type="ENUM" SubType="SEQUENCE_PADDING"><Description></Description></Field>
+						<Field ID="Signature" Width="20" Type="ECDSA_HALFSIGN" Handedness="Left"><Description></Description></Field>
+					</PayloadStructure>
+				</Message>
+				<Message SubType="END" SequenceOffset="1">
+					<Flags>
+						<Flag Mandatory="true" Negate="true">BEGIN</Flag>
+						<Flag Mandatory="true">END</Flag>
+						<Flag>SIGNED</Flag>
+						<Flag>PLEASE_SIGN</Flag>
+					</Flags>
+					<PayloadStructure>
+						<Field ID="KnotLinkID" Width="3" Type="KNOT_LINK_ID"><Description></Description></Field>
+						<Field ID="Sequence" Width="1" Type="SEQUENCE" PaddingField="Padding"><Description></Description></Field>
+						<Field ID="Padding" width="1" Type="ENUM" SubType="SEQUENCE_PADDING"><Description></Description></Field>
+						<Field ID="Signature" Width="20" Type="ECDSA_HALFSIGN" Handedness="Right"><Description></Description></Field>
+					</PayloadStructure>
+				</Message>
+			</Messages>
+		</MessageType>
+		<MessageType ID="MULTISIGN">
+			<Name><![CDATA[MultiSign]]></Name>
+			<Description><![CDATA[
+
+			]]></Description>
+			<SubTypes>
+				<SubType ID="START"><Description></Description></SubType>
+				<SubType ID="END"><Description></Description></SubType>
+			</SubTypes>
+			<Messages>
+				<Message SubType="START" SequenceOffset="0">
+					<Flags>
+						<Flag Mandatory="true">BEGIN</Flag>
+						<Flag Mandatory="true" Negate="true">END</Flag>
+						<Flag>ECHO</Flag>
+						<Flag>SIGNED</Flag>
+						<Flag>PLEASE_SIGN</Flag>
+					</Flags>
+					<PayloadStructure>
+						<Field ID="KnotLinkID" Width="3" Type="KNOT_LINK_ID"><Description></Description></Field>
+						<Field ID="SequenceStart" Width="1" Type="SEQUENCE" PaddingField="Padding"><Description></Description></Field>
+						<Field ID="Padding" width="1" Type="ENUM" SubType="SEQUENCE_PADDING"><Description></Description></Field>
+						<Field ID="Count" Width="1" Type="UINT"><Description></Description></Field>
+						<Field ID="Signature" Width="20" Type="ECDSA_HALFSIGN" Handedness="Left"><Description></Description></Field>
+					</PayloadStructure>
+				</Message>
+				<Message SubType="END" SequenceOffset="1">
+					<Flags>
+						<Flag Mandatory="true" Negate="true">BEGIN</Flag>
+						<Flag Mandatory="true">END</Flag>
+						<Flag>ECHO</Flag>
+						<Flag>SIGNED</Flag>
+						<Flag>PLEASE_SIGN</Flag>
+					</Flags>
+					<PayloadStructure>
+						<Field ID="KnotLinkID" Width="3" Type="KNOT_LINK_ID"><Description></Description></Field>
+						<Field ID="SequenceStart" Width="1" Type="SEQUENCE" PaddingField="Padding"><Description></Description></Field>
+						<Field ID="Padding" width="1" Type="ENUM" SubType="SEQUENCE_PADDING"><Description></Description></Field>
+						<Field ID="Count" Width="1" Type="UINT"><Description></Description></Field>
+						<Field ID="Signature" Width="20" Type="ECDSA_HALFSIGN" Handedness="Right"><Description></Description></Field>
+					</PayloadStructure>
+				</Message>
+			</Messages>
+		</MessageType>
+		<MessageType ID="REMISS">
+			<Name><![CDATA[Remiss]]></Name>
+			<Description><![CDATA[
+
+			]]></Description>
+			<Messages>
+				<Message>
+					<Flags>
+						<Flag Mandatory="true">BEGIN</Flag>
+						<Flag Mandatory="true">END</Flag>
+						<Flag>ECHO</Flag>
+					</Flags>
+					<PayloadStructure>
+						<Field ID="Fussiness" width="1" Type="BITFIELD" SubType="TEMPORAL_ACCURACY"><Description></Description></Field>
+						<Field ID="TimeAway" width="4" Type="UINT"><Description></Description></Field>
+						<Field ID="CurrentGuess" width="8" Type="UINT"><Description></Description></Field>
+					</PayloadStructure>
+				</Message>
+			</Messages>
+		</MessageType>
+		<MessageType ID="ROUSE">
+			<Name><![CDATA[Rouse]]></Name>
+			
+
+			<Messages>
+				<Message>
+					<Flags>
+						<Flag Mandatory="true">BEGIN</Flag>
+						<Flag Mandatory="true">END</Flag>
+						<Flag>ECHO</Flag>
+						<Flag>PLEASE_SIGN</Flag>
+					</Flags>
+					<PayloadStructure>
+						<Field ID="KnotLinkID" Width="3" Type="KNOT_LINK_ID"><Description></Description></Field>
+						<Field ID="Timestamp" width="8" Type="UINT"><Description></Description></Field>
+						<Field ID="Accuracy" width="1" Type="BITFIELD" SubType="TEMPORAL_ACCURACY"><Description></Description></Field>
+					</PayloadStructure>
+				</Message>
+			</Messages>
+			<Description><![CDATA[
+
+			]]></Description>
+		</MessageType>
+		<MessageType ID="ASTRAY">
+			
+
+			<Messages>
+			</Messages>
+			<Description><![CDATA[
+
+			]]></Description>
+		</MessageType>
+		<MessageType ID="NEST">
+			
+
+			<Messages>
+			</Messages>
+			<Description><![CDATA[
+
+			]]></Description>
+		</MessageType>
+		<MessageType ID="INTERROGATE">
+			
+
+			<Messages>
+			</Messages>
+			<Description><![CDATA[
+
+			]]></Description>
+		</MessageType>
+		<MessageType ID="PRANCE">
+			
+
+			<Messages>
+			</Messages>
+			<Description><![CDATA[
+
+			]]></Description>
+		</MessageType>
+		<MessageType ID="QRK">
+			
+
+			<Messages>
+			</Messages>
+			<Description><![CDATA[
+
+			]]></Description>
+		</MessageType>
+		<MessageType ID="CRITIQUE">
+			
+
+			<Messages>
+			</Messages>
+			<Description><![CDATA[
+
+			]]></Description>
+		</MessageType>
+		<MessageType ID="DRIFT">
+			
+
+			<Messages>
+			</Messages>
+			<Description><![CDATA[
+
+			]]></Description>
+		</MessageType>
+		<MessageType ID="STREETPARTY">
+			
+
+			<Messages>
+			</Messages>
+			<Description><![CDATA[
+
+			]]></Description>
+		</MessageType>
+		<MessageType ID="HOBNOB">
+			
+
+			<Messages>
+			</Messages>
+			<Description><![CDATA[
+
+			]]></Description>
+		</MessageType>
+		<MessageType ID="OBSERVATION">
+			
+
+			<Messages>
+			</Messages>
+			<Description><![CDATA[
+
+			]]></Description>
+		</MessageType>
+		<MessageType ID="EVENT">
+			
+
+			<Messages>
+			</Messages>
+			<Description><![CDATA[
+
+			]]></Description>
+		</MessageType>
+		<MessageType ID="ALERT">
+			
+
+			<Messages>
+			</Messages>
+			<Description><![CDATA[
+
+			]]></Description>
+		</MessageType>
+		<MessageType ID="ACTION">
+			
+
+			<Messages>
+			</Messages>
+			<Description><![CDATA[
+
+			]]></Description>
+		</MessageType>
+		<MessageType ID="SCOUTING">
+			
+
+			<Messages>
+			</Messages>
+			<Description><![CDATA[
+
+			]]></Description>
+		</MessageType>
+	</MessageTypes>
+</NRFProtocol>
