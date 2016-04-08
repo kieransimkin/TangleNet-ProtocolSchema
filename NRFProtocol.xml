@@ -259,8 +259,8 @@
 			<SubTypes>
 				<SubType ID="WIDE_TIMESTAMP" Width="8"><CType>uint64_t</CType></SubType>
 				<SubType ID="PRECISE_TIMESTAMP" Width="8"><CType>uint64_t</CType></SubType>
-				<SubType ID="VARIABLE_WIDE_TIMESTAMP" Width="8"><CType>uint64_t</CType><MandatoryAttributes><Attribute>PrecisionField</Attribute></MandatoryAttributes></SubType>
-				<SubType ID="VARIABLE_TIMESTAMP" Width="4"><CType>uint64_t</CType><MandatoryAttributes><Attribute>PrecisionField</Attribute></MandatoryAttributes></SubType>
+				<SubType ID="VARIABLE_WIDE_TIMESTAMP" Width="8"><CType>uint64_t</CType><MandatoryAttributes><MandatoryAttribute>PrecisionField</MandatoryAttribute></MandatoryAttributes></SubType>
+				<SubType ID="VARIABLE_TIMESTAMP" Width="4"><CType>uint64_t</CType><MandatoryAttributes><MandatoryAttribute>PrecisionField</MandatoryAttribute></MandatoryAttributes></SubType>
 			</SubTypes>
 		</Type>
 		<Type ID="TIMESPAN">
@@ -284,10 +284,10 @@
 				<Attribute ID="AccuracyField" Type="FIELD"><Type>BITFIELD</Type><SubType>TEMPORAL_ACCURACY</SubType><Description></Description></Attribute>
 			</Attributes>
 			<SubTypes>
-				<SubType ID="TIMESPAN" Width="1"><CType>uint8_t</CType><MandatoryAttributes><Attribute>LengthField</Attribute></MandatoryAttributes></SubType>
-				<SubType ID="TIMESPAN16" Width="2"><CType>uint16_t</CType><MandatoryAttributes><Attribute>LengthField</Attribute></MandatoryAttributes></SubType>
-				<SubType ID="TIMESPAN32" Width="4"><CType>uint32_t</CType><MandatoryAttributes><Attribute>LengthField</Attribute></MandatoryAttributes></SubType>
-				<SubType ID="TIMESPAN64" Width="8"><CType>uint64_t</CType><MandatoryAttributes><Attribute>LengthField</Attribute></MandatoryAttributes></SubType>
+				<SubType ID="TIMESPAN" Width="1"><CType>uint8_t</CType><MandatoryAttributes><MandatoryAttribute>LengthField</MandatoryAttribute></MandatoryAttributes></SubType>
+				<SubType ID="TIMESPAN16" Width="2"><CType>uint16_t</CType><MandatoryAttributes><MandatoryAttribute>LengthField</MandatoryAttribute></MandatoryAttributes></SubType>
+				<SubType ID="TIMESPAN32" Width="4"><CType>uint32_t</CType><MandatoryAttributes><MandatoryAttribute>LengthField</MandatoryAttribute></MandatoryAttributes></SubType>
+				<SubType ID="TIMESPAN64" Width="8"><CType>uint64_t</CType><MandatoryAttributes><MandatoryAttribute>LengthField</MandatoryAttribute></MandatoryAttributes></SubType>
 				<SubType ID="SECONDS" Width="4"><CType>uint32_t</CType></SubType>
 				<SubType ID="SHORT_SECONDS" Width="1"><CType>uint8_t</CType></SubType>
 				<SubType ID="MINUTES" Width="4"><CType>uint32_t</CType></SubType>
