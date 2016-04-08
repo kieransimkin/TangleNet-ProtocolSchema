@@ -553,6 +553,9 @@
 		<MessageType ID="ROUSE">
 			<Name><![CDATA[Rouse]]></Name>
 			
+			<Description><![CDATA[
+
+			]]></Description>
 
 			<Messages>
 				<Message>
@@ -569,9 +572,6 @@
 					</PayloadStructure>
 				</Message>
 			</Messages>
-			<Description><![CDATA[
-
-			]]></Description>
 	</MessageType>
 	<!--
 		<MessageType ID="ASTRAY">
