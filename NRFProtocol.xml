@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<NRFProtocol xmlns="http://dealing.ninja/NRFProtocol" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://raw.githubusercontent.com/kieransimkin/TangleNet-ProtocolSchema/master/NRFProtocol.xsd" >
+<NRFProtocol xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://raw.githubusercontent.com/kieransimkin/TangleNet-ProtocolSchema/master/NRFProtocol.xsd" >
 	<BitfieldTypes>
 		<BitfieldType ID="MESSAGE_FLAGS" Width="1">
 			<Name>MessageFlags</Name>
