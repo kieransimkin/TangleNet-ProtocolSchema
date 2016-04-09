@@ -15,9 +15,8 @@ request.post({url:'https://validator.w3.org/nu/?out=xml&schema=http://raw.github
 
 //request.post({url:'https://validator.w3.org/nu/?parser=xml&out=json&schema=http://raw.githubusercontent.com/kieransimkin/TangleNet-ProtocolSchema/995b181adb07d6f9ce6692ca537b2d8bbb87d931/NRFProtocol.xsd&laxtype=yes',headers: {'Content-Type':'text/xml; charset=utf-8'},body: xml},function(err,httpResponse,body){ console.log(body); });
 //request.post({url:'https://validator.w3.org/nu/?parser=xml&out=json&laxtype=yes',headers: {'Content-Type':'text/xml; charset=utf-8'},body: xml},function(err,httpResponse,body){ console.log(body); });
-/*
 var parser = new xml4js.Parser({ downloadSchemas: false,xmlns: false});
-parser.addSchema('nrf', schema, function (err, importsAndIncludes) {
+parser.addSchema('http://dealing.ninja/NRFProtocol', schema, function (err, importsAndIncludes) {
 	console.log(err);
     // importsAndIncludes contains schemas to be added as well to satisfy all imports and includes found in schema.xsd
     parser.parseString(xml, function (err, result) {
@@ -26,5 +25,4 @@ parser.addSchema('nrf', schema, function (err, importsAndIncludes) {
         console.log(util.inspect(result, false, null));
     });
 });
-*/
 
