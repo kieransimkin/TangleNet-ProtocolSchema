@@ -116,6 +116,7 @@
 
 			]]></Description>
 		<CType>uint8_t</CType>
+		<CodeName>UInt</CodeName>
 		<DefaultWidth>1</DefaultWidth>
 		<Constraints>
 			<MaxWidth>8</MaxWidth>
@@ -148,6 +149,7 @@
 			]]></Description>
 		
 			<CType>char[LENGTH+1]</CType>
+			<CodeName>UInt</CodeName>
 		<Constraints />
 		</Type>
 		<Type ID="BINARY">
@@ -156,6 +158,7 @@
 
 			]]></Description>
 		<CType>uint8_t[LENGTH]</CType>
+		<CodeName>Binary</CodeName>
 		<Constraints />
 		</Type>
 		<Type ID="ENUM">
@@ -164,6 +167,7 @@
 
 				]]></Description>
 			<CType>uint8_t</CType>
+			<CodeName>Enum</CodeName>
 			<DefaultWidth>1</DefaultWidth>
 			<Constraints>
 				<MaxWidth>2</MaxWidth>
@@ -180,7 +184,8 @@
 			<Description><![CDATA[
 
 			]]></Description>
-			<CType>uint8_t</CType>
+		<CType>uint8_t</CType>
+			<CodeName>Bitfield</CodeName>
 			<DefaultWidth>1</DefaultWidth>
 			<Constraints>
 				<MaxWidth>2</MaxWidth>
@@ -198,6 +203,7 @@
 
 				]]></Description>
 			<CType>uint8_t[21]</CType>
+			<CodeName>ecdsaPublic</CodeName>
 			<Constraints>
 			<MinWidth>21</MinWidth>
 			<MaxWidth>21</MaxWidth>
@@ -209,6 +215,7 @@
 
 				]]></Description>
 			<CType>uint8_t[20]</CType>
+			<CodeName>ecdsaHalfSign</CodeName>
 			<Constraints>
 			<MinWidth>20</MinWidth>
 			<MaxWidth>20</MaxWidth>
@@ -223,6 +230,7 @@
 
 				]]></Description>
 			<CType>uint8_t[3]</CType>
+			<CodeName>KnotLinkID</CodeName>
 			<Constraints>
 			<MinWidth>3</MinWidth>
 			<MaxWidth>3</MaxWidth>
@@ -234,6 +242,7 @@
 
 				]]></Description>
 			<CType>uint8_t</CType>
+			<CodeName>MsgSubType</CodeName>
 			<Constraints>
 			<MaxWidth>1</MaxWidth>
 			</Constraints>
@@ -244,6 +253,7 @@
 
 				]]></Description>
 			<CType>uint8_t</CType>
+			<CodeName>Sequence</CodeName>
 			<DefaultWidth>1</DefaultWidth>
 			<Constraints>
 			<MaxWidth>4</MaxWidth>
@@ -265,6 +275,7 @@
 
 				]]></Description>
 			<CType>uint32_t</CType>
+			<CodeName>Timestamp</CodeName>
 			<DefaultWidth>4</DefaultWidth>
 			<Constraints>
 			<ValidWidths>
@@ -289,6 +300,7 @@
 
 				]]></Description>
 			<CType>uint8_t</CType>
+			<CodeName>TimeSpan</CodeName>
 			<DefaultWidth>1</DefaultWidth>
 			<Constraints>
 			<ValidWidths>
@@ -326,6 +338,7 @@
 
 				]]></Description>
 			<CType>bool</CType>
+			<CodeName>Boolean</CodeName>
 			<Constraints>
 			<MaxWidth>1</MaxWidth>
 			<Values>
@@ -347,7 +360,8 @@
 			<Name><![CDATA[Smile]]></Name>
 			<Description><![CDATA[
 
-			]]></Description>
+				]]></Description>
+			<CodeName>Smile</CodeName>
 			<Messages>
 				<Message>
 					<Flags>
@@ -370,6 +384,7 @@
 			<Description><![CDATA[
 
 			]]></Description>
+			<CodeName>Nod</CodeName>
 			<Messages>
 				<Message>
 					<Flags>
@@ -392,9 +407,10 @@
 			<Description><![CDATA[
 
 			]]></Description>
+			<CodeName>Collision</CodeName>
 			<SubTypes>
-				<SubType ID="BANG"><Description></Description></SubType>
-				<SubType ID="FALLOUT"><Description></Description></SubType>
+				<SubType ID="BANG" CodeName="CollisionBang"><Description></Description></SubType>
+				<SubType ID="FALLOUT" CodeName="CollisionFallout"><Description></Description></SubType>
 			</SubTypes>
 			<Messages>
 				<Message SubType="BANG">
@@ -430,7 +446,8 @@
 			<Name><![CDATA[Resend]]></Name>
 			<Description><![CDATA[
 
-			]]></Description>
+				]]></Description>
+			<CodeName>Resend</CodeName>
 			<Messages>
 				<Message>
 					<Flags>
@@ -450,10 +467,11 @@
 			<Name><![CDATA[Sign]]></Name>
 			<Description><![CDATA[
 
-			]]></Description>
+				]]></Description>
+			<CodeName>Sign</CodeName>
 			<SubTypes>
-				<SubType ID="START" SequenceOffset="0"><Description></Description></SubType>
-				<SubType ID="END" SequenceOffset="1"><Description></Description></SubType>
+				<SubType ID="START" CodeName="SignStart" SequenceOffset="0"><Description></Description></SubType>
+				<SubType ID="END" CodeName="SignEnd" SequenceOffset="1"><Description></Description></SubType>
 			</SubTypes>
 			<Messages>
 				<Message SubType="START">
@@ -490,10 +508,11 @@
 			<Name><![CDATA[MultiSign]]></Name>
 			<Description><![CDATA[
 
-			]]></Description>
+				]]></Description>
+			<CodeName>MultiSign</CodeName>
 			<SubTypes>
-				<SubType ID="START" SequenceOffset="0"><Description></Description></SubType>
-				<SubType ID="END" SequenceOffset="1"><Description></Description></SubType>
+				<SubType ID="START" CodeName="MultiSignStart" SequenceOffset="0"><Description></Description></SubType>
+				<SubType ID="END" CodeName="MultiSignEnd" SequenceOffset="1"><Description></Description></SubType>
 			</SubTypes>
 			<Messages>
 				<Message SubType="START">
@@ -534,7 +553,8 @@
 			<Name><![CDATA[Remiss]]></Name>
 			<Description><![CDATA[
 
-			]]></Description>
+				]]></Description>
+			<CodeName>Remiss</CodeName>
 			<Messages>
 				<Message>
 					<Flags>
@@ -556,7 +576,7 @@
 			<Description><![CDATA[
 
 			]]></Description>
-
+			<CodeName>Rouse</CodeName>
 			<Messages>
 				<Message>
 					<Flags>
