@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<xs:schema xmlns:nrf="http://dealing.ninja/NRFProtocol" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://dealing.ninja/NRFProtocol" elementFormDefault="qualified" attributeFormDefault="qualified">
+<xs:schema xmlns:nrf="http://dealing.ninja/NRFProtocol" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://dealing.ninja/NRFProtocol" elementFormDefault="unqualified" attributeFormDefault="unqualified">
 	<xs:element name="NRFProtocol">
 		<xs:complexType>
 			<xs:all>
@@ -51,25 +51,25 @@
 		<xs:restriction base="xs:NMTOKEN" />
 	</xs:simpleType>
 	<xs:simpleType name="unsignedInt">
-		<xs:restriction base="nrf:unsignedInt" />
+		<xs:restriction base="xs:unsignedInt" />
 	</xs:simpleType>
 	<xs:simpleType name="SubType">
-		<xs:restriction base="nrf:Token" />
+		<xs:restriction base="xs:NMTOKEN" />
 	</xs:simpleType>
 	<xs:simpleType name="CodeNameType">
-		<xs:restriction base="nrf:Token" />
+		<xs:restriction base="xs:NMTOKEN" />
 	</xs:simpleType>
 	<xs:simpleType name="DataTypeID">
-		<xs:restriction base="nrf:Token" />
+		<xs:restriction base="xs:NMTOKEN" />
 	</xs:simpleType>
 	<xs:simpleType name="EnumerationTypeID">
-		<xs:restriction base="nrf:Token" />
+		<xs:restriction base="xs:NMTOKEN" />
 	</xs:simpleType>
 	<xs:simpleType name="BitfieldTypeID">
-		<xs:restriction base="nrf:Token" />
+		<xs:restriction base="xs:NMTOKEN" />
 	</xs:simpleType>
 	<xs:simpleType name="MessageTypeID">
-		<xs:restriction base="nrf:Token" />
+		<xs:restriction base="xs:Token" />
 	</xs:simpleType>
 	<xs:element name="BitfieldTypes">
 		<xs:complexType>
