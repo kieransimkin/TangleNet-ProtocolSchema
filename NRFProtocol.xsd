@@ -90,10 +90,10 @@
 								<xs:complexType>
 									<xs:sequence>
 										<xs:element name="Name" type="String" minOccurs='0' maxOccurs='1'/>
-										<!-- TODO XXX name is not really optional -->
 										<xs:element name="Description" type="String" minOccurs="0" maxOccurs="1" />
 									</xs:sequence>
 									<xs:attribute name="ID" type="Token" use="required" />
+									<xs:attribute name="CodeName" type="CodeNameType" use="required" />
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
