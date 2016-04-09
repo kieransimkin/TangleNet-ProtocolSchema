@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<xs:schema xmlns:nrf="http://dealing.ninja/NRFProtocol" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://dealing.ninja/NRFProtocol" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:nrf="http://dealing.ninja/NRFProtocol" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://dealing.ninja/NRFProtocol" elementFormDefault="unqualified" attributeFormDefault="unqualified">
 	<xs:element name="NRFProtocol">
 		<xs:complexType>
 			<xs:all>
@@ -248,7 +248,7 @@
 			<xs:attribute name="Width" type="nrf:unsignedInt" use="optional" default="1" />
 			<xs:attribute name="Type" type="nrf:DataTypeID" use="required" />
 			<xs:attribute name="SubType" type="nrf:SubType" use="optional" />
-			<xs:anyAttribute namespace="##any" />
+			<xs:anyAttribute namespace="##any" processContent="lax"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="NRFPacket">
