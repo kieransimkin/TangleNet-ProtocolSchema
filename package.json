@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/kieransimkin/TangleNet-ProtocolSchema#readme",
   "dependencies": {
+    "request": "^2.70.0",
     "xml4js": "^0.1.3"
   }
 }
