@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
-<schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:nrf="http://dealing.ninja/NRFProtocol"  elementFormDefault="unqualified" attributeFormDefault="unqualified" >
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://dealing.ninja/NRFProtocol" xmlns:nrf="http://dealing.ninja/NRFProtocol"  elementFormDefault="qualified" attributeFormDefault="qualified" targetNamespace="http://dealing.ninja/NRFProtocol">
 	<xs:element name="NRFProtocol">
 		<xs:complexType>
 			<xs:all>
-				<xs:element ref="nrf:BitfieldTypes" />
-				<xs:element ref="nrf:EnumerationTypes" />
-				<xs:element ref="nrf:Types" />
-				<xs:element ref="nrf:NRFPacket" />
-				<xs:element ref="nrf:MessageTypes" />
+				<xs:element ref="BitfieldTypes" />
+				<xs:element ref="EnumerationTypes" />
+				<xs:element ref="Types" />
+				<xs:element ref="NRFPacket" />
+				<xs:element ref="MessageTypes" />
 			</xs:all>
-			<xs:attribute name="noNamespaceSchemaLocation" type="nrf:String" />
+			<xs:attribute name="noNamespaceSchemaLocation" type="String" />
 		</xs:complexType>
 		<xs:key name="BitfieldTypeID">
 			<xs:selector xpath="BitfieldTypes/BitfieldType" />
@@ -23,15 +23,15 @@
 			<xs:selector xpath="Types/Type" />
 			<xs:field xpath="@ID" />
 		</xs:key>
-		<xs:keyref name="TypeIDRef" refer="nrf:TypeID">
+		<xs:keyref name="TypeIDRef" refer="TypeID">
 			<xs:selector xpath="*" />
 			<xs:field xpath="@DataTypeID" />
 		</xs:keyref>
-		<xs:keyref name="EnumerationTypeIDRef" refer="nrf:EnumerationTypeID">
+		<xs:keyref name="EnumerationTypeIDRef" refer="EnumerationTypeID">
 			<xs:selector xpath="./EnumerationType" />
 			<xs:field xpath="@EnumerationTypeID" />
 		</xs:keyref>
-		<xs:keyref name="BitfieldTypeIDRef" refer="nrf:BitfieldTypeID">
+		<xs:keyref name="BitfieldTypeIDRef" refer="BitfieldTypeID">
 			<xs:selector xpath="BitfieldType" />
 			<xs:field xpath="@BitfieldTypeID" />
 		</xs:keyref>
@@ -39,7 +39,7 @@
 			<xs:selector xpath="MessageTypes/MessageType" />
 			<xs:field xpath="@ID" />
 		</xs:key>
-		<xs:keyref name="MessageTypeIDRef" refer="nrf:MessageTypeID">
+		<xs:keyref name="MessageTypeIDRef" refer="MessageTypeID">
 			<xs:selector xpath="MessageType" />
 			<xs:field xpath="@MessageTypeID" />
 		</xs:keyref>
@@ -74,34 +74,34 @@
 	<xs:element name="BitfieldTypes">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="nrf:BitfieldType" maxOccurs="unbounded" />
+				<xs:element ref="BitfieldType" maxOccurs="unbounded" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="BitfieldType">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="Name" type="nrf:String" />
-				<xs:element name="Description" type="nrf:String" />
+				<xs:element name="Name" type="String" />
+				<xs:element name="Description" type="String" />
 				<xs:element name="Bits">
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="Bit" maxOccurs="unbounded">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="Name" type="nrf:String" />
+										<xs:element name="Name" type="String" />
 										<!-- TODO XXX name is not really optional -->
-										<xs:element name="Description" type="nrf:String" minOccurs="0" maxOccurs="1" />
+										<xs:element name="Description" type="String" minOccurs="0" maxOccurs="1" />
 									</xs:sequence>
-									<xs:attribute name="ID" type="nrf:Token" use="required" />
+									<xs:attribute name="ID" type="Token" use="required" />
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 			</xs:sequence>
-			<xs:attribute name="Width" type="nrf:unsignedInt" use="optional" default="1" />
-			<xs:attribute name="ID" type="nrf:Token" use="required" />
+			<xs:attribute name="Width" type="unsignedInt" use="optional" default="1" />
+			<xs:attribute name="ID" type="Token" use="required" />
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="EnumerationTypes">
@@ -110,26 +110,26 @@
 				<xs:element name="EnumerationType" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="Name" type="nrf:String" />
-							<xs:element name="Description" type="nrf:String" minOccurs="0" maxOccurs="1" />
+							<xs:element name="Name" type="String" />
+							<xs:element name="Description" type="String" minOccurs="0" maxOccurs="1" />
 							<xs:element name="Options">
 								<xs:complexType>
 									<xs:sequence>
 										<xs:element name="Option" maxOccurs="unbounded">
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="Name" type="nrf:String" minOccurs='0' maxOccurs='1' />
+													<xs:element name="Name" type="String" minOccurs='0' maxOccurs='1' />
 													<!-- TODO XXX name is not really optional -->
-													<xs:element name="Description" type="nrf:String" minOccurs="0" maxOccurs="1" />
+													<xs:element name="Description" type="String" minOccurs="0" maxOccurs="1" />
 												</xs:sequence>
-												<xs:attribute name="ID" type="nrf:Token" use="required" />
+												<xs:attribute name="ID" type="Token" use="required" />
 											</xs:complexType>
 										</xs:element>
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
-			<xs:attribute name="ID" type="nrf:Token" use="required" />
+			<xs:attribute name="ID" type="Token" use="required" />
 					</xs:complexType>
 				</xs:element>
 			</xs:sequence>
@@ -141,27 +141,27 @@
 				<xs:element name="Type" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="Name" type="nrf:String" />
-							<xs:element name="Description" type="nrf:String" minOccurs="0" maxOccurs="1" />
-							<xs:element name="CType" type="nrf:String" />
-							<xs:element name="CodeName" type="nrf:CodeNameType" />
-							<xs:element name="DefaultWidth" type="nrf:unsignedInt" minOccurs="0" maxOccurs="1" default="1" />
+							<xs:element name="Name" type="String" />
+							<xs:element name="Description" type="String" minOccurs="0" maxOccurs="1" />
+							<xs:element name="CType" type="String" />
+							<xs:element name="CodeName" type="CodeNameType" />
+							<xs:element name="DefaultWidth" type="unsignedInt" minOccurs="0" maxOccurs="1" default="1" />
 							<xs:element name="Constraints">
 								<xs:complexType>
 									<xs:all>
-									<xs:element name="MaxWidth" type="nrf:unsignedInt" minOccurs="0" maxOccurs="1" />
-									<xs:element name="MinWidth" type="nrf:unsignedInt" minOccurs="0" maxOccurs="1" />
+									<xs:element name="MaxWidth" type="unsignedInt" minOccurs="0" maxOccurs="1" />
+									<xs:element name="MinWidth" type="unsignedInt" minOccurs="0" maxOccurs="1" />
 									<xs:element name="InvalidWidths" minOccurs="0" maxOccurs="1">
 										<xs:complexType>
 											<xs:sequence>
-												<xs:element name="InvalidWidth" type="nrf:unsignedInt" maxOccurs="unbounded" />
+												<xs:element name="InvalidWidth" type="unsignedInt" maxOccurs="unbounded" />
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
 									<xs:element name="ValidWidths" minOccurs="0" maxOccurs="1">
 										<xs:complexType>
 											<xs:sequence>
-												<xs:element name="ValidWidth" type="nrf:unsignedInt" maxOccurs="unbounded" />
+												<xs:element name="ValidWidth" type="unsignedInt" maxOccurs="unbounded" />
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
@@ -171,8 +171,8 @@
 												<xs:element name="Value" maxOccurs="unbounded">
 													<xs:complexType>
 														<xs:simpleContent>
-															<xs:extension base="nrf:Token">
-																<xs:attribute name="ID" type="nrf:Token" use="required" />
+															<xs:extension base="Token">
+																<xs:attribute name="ID" type="Token" use="required" />
 															</xs:extension>
 														</xs:simpleContent>
 													</xs:complexType>
@@ -189,16 +189,16 @@
 										<xs:element name="Attribute" maxOccurs="unbounded">
 											<xs:complexType>
 												<xs:all>
-													<xs:element name="Name" type="nrf:String" minOccurs="0" maxOccurs="1"/>
+													<xs:element name="Name" type="String" minOccurs="0" maxOccurs="1"/>
 													<!-- XXX TODO Name is required really -->
-													<xs:element name="Description" type="nrf:String" minOccurs="0" maxOccurs="1" />
-													<xs:element name="ID" type="nrf:String" minOccurs="0" maxOccurs="1" />
-													<xs:element name="Type" type="nrf:DataTypeID" minOccurs="0" maxOccurs="1" />
-													<xs:element name="SubType" type="nrf:SubType" minOccurs="0" maxOccurs="1" />
-													<xs:element name="References" type="nrf:Token" minOccurs="0" maxOccurs="1" />
+													<xs:element name="Description" type="String" minOccurs="0" maxOccurs="1" />
+													<xs:element name="ID" type="String" minOccurs="0" maxOccurs="1" />
+													<xs:element name="Type" type="DataTypeID" minOccurs="0" maxOccurs="1" />
+													<xs:element name="SubType" type="SubType" minOccurs="0" maxOccurs="1" />
+													<xs:element name="References" type="Token" minOccurs="0" maxOccurs="1" />
 												</xs:all>
-												<xs:attribute name="ID" type="nrf:Token" use="required" />
-												<xs:attribute name="Type" type="nrf:DataTypeID" use="required" />
+												<xs:attribute name="ID" type="Token" use="required" />
+												<xs:attribute name="Type" type="DataTypeID" use="required" />
 											</xs:complexType>
 										</xs:element>
 									</xs:sequence>
@@ -210,28 +210,28 @@
 										<xs:element name="SubType" maxOccurs="unbounded">
 											<xs:complexType>
 												<xs:all>
-													<xs:element name="Name" type="nrf:String" minOccurs="0" maxOccurs="1" />
+													<xs:element name="Name" type="String" minOccurs="0" maxOccurs="1" />
 													<!-- XXX TODO Name is required really -->
-													<xs:element name="Description" type="nrf:String" minOccurs="0" maxOccurs="1" />
-													<xs:element name="CType" type="nrf:String" />
-													<xs:element name="CodeName" type="nrf:CodeNameType" minOccurs="0" maxOccurs="1" />
+													<xs:element name="Description" type="String" minOccurs="0" maxOccurs="1" />
+													<xs:element name="CType" type="String" />
+													<xs:element name="CodeName" type="CodeNameType" minOccurs="0" maxOccurs="1" />
 													<xs:element name="MandatoryAttributes" minOccurs="0" maxOccurs="1">
 														<xs:complexType>
 															<xs:sequence>
-																<xs:element name="MandatoryAttribute" type="nrf:Token" maxOccurs="unbounded" />
+																<xs:element name="MandatoryAttribute" type="Token" maxOccurs="unbounded" />
 															</xs:sequence>
 														</xs:complexType>
 													</xs:element>
 												</xs:all>
-												<xs:attribute name="ID" type="nrf:Token" use="required" />
-												<xs:attribute name="Width" type="nrf:unsignedInt" use="optional" default="1" />
+												<xs:attribute name="ID" type="Token" use="required" />
+												<xs:attribute name="Width" type="unsignedInt" use="optional" default="1" />
 											</xs:complexType>
 										</xs:element>
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
-						<xs:attribute name="ID" type="nrf:Token" use="required" />
+						<xs:attribute name="ID" type="Token" use="required" />
 					</xs:complexType>
 				</xs:element>
 			</xs:sequence>
@@ -240,21 +240,21 @@
 	<xs:element name="Field">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="Name" type="nrf:String" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="Name" type="String" minOccurs="0" maxOccurs="1"/>
 				<!-- XXX TODO name not really optional -->
-				<xs:element name="Description" type="nrf:String" minOccurs="0" maxOccurs="1" />
+				<xs:element name="Description" type="String" minOccurs="0" maxOccurs="1" />
 			</xs:sequence>
-			<xs:attribute name="ID" type="nrf:Token" use="required" />
-			<xs:attribute name="Width" type="nrf:unsignedInt" use="optional" default="1" />
-			<xs:attribute name="Type" type="nrf:DataTypeID" use="required" />
-			<xs:attribute name="SubType" type="nrf:SubType" use="optional" />
+			<xs:attribute name="ID" type="Token" use="required" />
+			<xs:attribute name="Width" type="unsignedInt" use="optional" default="1" />
+			<xs:attribute name="Type" type="DataTypeID" use="required" />
+			<xs:attribute name="SubType" type="SubType" use="optional" />
 			<xs:anyAttribute namespace="##any" processContents="lax"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="NRFPacket">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="nrf:Field" maxOccurs="unbounded" />
+				<xs:element ref="Field" maxOccurs="unbounded" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
@@ -267,7 +267,7 @@
 							<xs:element name="Flag" maxOccurs="8" minOccurs="1">
 								<xs:complexType>
 									<xs:simpleContent>
-										<xs:extension base="nrf:Token">
+										<xs:extension base="Token">
 											<xs:attribute name="Mandatory" type="xs:boolean" use="optional" />
 											<xs:attribute name="Negate" type="xs:boolean" use="optional" />
 										</xs:extension>
@@ -280,33 +280,33 @@
 				<xs:element name="PayloadStructure">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element ref="nrf:Field" maxOccurs="unbounded" />
+							<xs:element ref="Field" maxOccurs="unbounded" />
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 			</xs:sequence>
-			<xs:attribute name="SubType" type="nrf:Token" use="optional" />
+			<xs:attribute name="SubType" type="Token" use="optional" />
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="MessageType">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="Name" type="nrf:String" />
-				<xs:element name="Description" type="nrf:String" minOccurs="0" maxOccurs="1" />
-				<xs:element name="CodeName" type="nrf:CodeNameType" />
+				<xs:element name="Name" type="String" />
+				<xs:element name="Description" type="String" minOccurs="0" maxOccurs="1" />
+				<xs:element name="CodeName" type="CodeNameType" />
 				<xs:element name="SubTypes" minOccurs="0" maxOccurs="1">
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="SubType" maxOccurs="unbounded">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="Name" type="nrf:String" minOccurs="0" maxOccurs="1" />
+										<xs:element name="Name" type="String" minOccurs="0" maxOccurs="1" />
 										<!-- XXX TODO name isnt really optional -->
-										<xs:element name="Description" type="nrf:String" minOccurs="0" maxOccurs="1" />
+										<xs:element name="Description" type="String" minOccurs="0" maxOccurs="1" />
 									</xs:sequence>
-									<xs:attribute name="ID" type="nrf:Token" use="required" />
-									<xs:attribute name="CodeName" type="nrf:CodeNameType" use="required" />
-									<xs:attribute name="SequenceOffset" type="nrf:unsignedInt" use="optional" />
+									<xs:attribute name="ID" type="Token" use="required" />
+									<xs:attribute name="CodeName" type="CodeNameType" use="required" />
+									<xs:attribute name="SequenceOffset" type="unsignedInt" use="optional" />
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
@@ -315,19 +315,19 @@
 				<xs:element name="Messages">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element ref="nrf:Message" maxOccurs="unbounded" minOccurs="1" />
+							<xs:element ref="Message" maxOccurs="unbounded" minOccurs="1" />
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 			</xs:sequence>
-			<xs:attribute name="ID" type="nrf:Token" use="required" />
+			<xs:attribute name="ID" type="Token" use="required" />
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="MessageTypes">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="nrf:MessageType" maxOccurs="unbounded" />
+				<xs:element ref="MessageType" maxOccurs="unbounded" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-</schema>
+</xs:schema>
