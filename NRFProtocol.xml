@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<NRFProtocol xmlns="http://dealing.ninja/NRFProtocol" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="NRFProtocol.xsd">
+<schema  xmlns="http://dealing.ninja/NRFProtocol" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://dealing.ninja/NRFProtocol NRFProtocol.xsd" />
+<NRFProtocol>
 	<BitfieldTypes>
 		<BitfieldType ID="MESSAGE_FLAGS" Width="1">
 			<Name><![CDATA[MessageFlags]]></Name>
@@ -720,3 +721,4 @@
 		</MessageType>-->
 	</MessageTypes>
 </NRFProtocol>
+</schema>
