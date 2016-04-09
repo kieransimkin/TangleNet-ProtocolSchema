@@ -45,11 +45,12 @@
 		</xs:keyref>
 	</xs:element>
 	<xs:simpleType name="String">
+		<xs:restriction base="xs:string" />
 	</xs:simpleType>
 	<xs:simpleType name="Token">
 		<xs:restriction base="xs:NMTOKEN" />
 	</xs:simpleType>
-	<xs:simpleType name="unsignedInt">
+	<xs:simpleType name="Shekel">
 		<xs:restriction base="xs:unsignedInt" />
 	</xs:simpleType>
 	<xs:simpleType name="SubType">
@@ -81,6 +82,7 @@
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="Name" type="String" />
+				<xs:element name="CodeName" type="CodeNameType" />
 				<xs:element name="Description" type="String" />
 				<xs:element name="Bits">
 					<xs:complexType>
@@ -99,7 +101,7 @@
 					</xs:complexType>
 				</xs:element>
 			</xs:sequence>
-			<xs:attribute name="Width" type="unsignedInt" use="optional" default="1" />
+			<xs:attribute name="Width" type="Shekel" use="optional" default="1" />
 			<xs:attribute name="ID" type="Token" use="required" />
 		</xs:complexType>
 	</xs:element>
@@ -110,6 +112,7 @@
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="Name" type="String" />
+							<xs:element name="CodeName" type="CodeNameType" />
 							<xs:element name="Description" type="String" minOccurs="0" maxOccurs="1" />
 							<xs:element name="Options">
 								<xs:complexType>
@@ -122,6 +125,7 @@
 													<xs:element name="Description" type="String" minOccurs="0" maxOccurs="1" />
 												</xs:sequence>
 												<xs:attribute name="ID" type="Token" use="required" />
+												<xs:attribute name="CodeName" type="CodeNameType" use="required" />
 											</xs:complexType>
 										</xs:element>
 									</xs:sequence>
@@ -144,23 +148,23 @@
 							<xs:element name="Description" type="String" minOccurs="0" maxOccurs="1" />
 							<xs:element name="CType" type="String" />
 							<xs:element name="CodeName" type="CodeNameType" />
-							<xs:element name="DefaultWidth" type="unsignedInt" minOccurs="0" maxOccurs="1" default="1" />
+							<xs:element name="DefaultWidth" type="Shekel" minOccurs="0" maxOccurs="1" default="1" />
 							<xs:element name="Constraints">
 								<xs:complexType>
 									<xs:all>
-									<xs:element name="MaxWidth" type="unsignedInt" minOccurs="0" maxOccurs="1" />
-									<xs:element name="MinWidth" type="unsignedInt" minOccurs="0" maxOccurs="1" />
+									<xs:element name="MaxWidth" type="Shekel" minOccurs="0" maxOccurs="1" />
+									<xs:element name="MinWidth" type="Shekel" minOccurs="0" maxOccurs="1" />
 									<xs:element name="InvalidWidths" minOccurs="0" maxOccurs="1">
 										<xs:complexType>
 											<xs:sequence>
-												<xs:element name="InvalidWidth" type="unsignedInt" maxOccurs="unbounded" />
+												<xs:element name="InvalidWidth" type="Shekel" maxOccurs="unbounded" />
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
 									<xs:element name="ValidWidths" minOccurs="0" maxOccurs="1">
 										<xs:complexType>
 											<xs:sequence>
-												<xs:element name="ValidWidth" type="unsignedInt" maxOccurs="unbounded" />
+												<xs:element name="ValidWidth" type="Shekel" maxOccurs="unbounded" />
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
@@ -223,7 +227,7 @@
 													</xs:element>
 												</xs:all>
 												<xs:attribute name="ID" type="Token" use="required" />
-												<xs:attribute name="Width" type="unsignedInt" use="optional" default="1" />
+												<xs:attribute name="Width" type="Shekel" use="optional" default="1" />
 											</xs:complexType>
 										</xs:element>
 									</xs:sequence>
@@ -244,7 +248,7 @@
 				<xs:element name="Description" type="String" minOccurs="0" maxOccurs="1" />
 			</xs:sequence>
 			<xs:attribute name="ID" type="Token" use="required" />
-			<xs:attribute name="Width" type="unsignedInt" use="optional" default="1" />
+			<xs:attribute name="Width" type="Shekel" use="optional" default="1" />
 			<xs:attribute name="Type" type="DataTypeID" use="required" />
 			<xs:attribute name="SubType" type="SubType" use="optional" />
 			<xs:anyAttribute namespace="##any" processContents="lax"/>
@@ -305,7 +309,7 @@
 									</xs:sequence>
 									<xs:attribute name="ID" type="Token" use="required" />
 									<xs:attribute name="CodeName" type="CodeNameType" use="required" />
-									<xs:attribute name="SequenceOffset" type="unsignedInt" use="optional" />
+									<xs:attribute name="SequenceOffset" type="Shekel" use="optional" />
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
