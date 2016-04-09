@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns="http://dealing.ninja/NRFProtocol" targetNameSpace="http://dealing.ninja/NRFProtocol" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xs:element name="NRFProtocol">
 		<xs:complexType>
 			<xs:all>
