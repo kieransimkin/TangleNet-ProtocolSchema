@@ -234,7 +234,7 @@
 			<xs:attribute name="Width" type="xs:unsignedInt" use="optional" default="1" />
 			<xs:attribute name="Type" type="DataTypeID" use="required" />
 			<xs:attribute name="SubType" type="SubType" use="optional" />
-			<xs:anyAttribute/>
+			<xs:anyAttribute namespace="##any" />
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="NRFPacket">
