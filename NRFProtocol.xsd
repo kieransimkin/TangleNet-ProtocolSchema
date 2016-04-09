@@ -45,7 +45,6 @@
 		</xs:keyref>
 	</xs:element>
 	<xs:simpleType name="String">
-		<xs:restriction base="xs:string" />
 	</xs:simpleType>
 	<xs:simpleType name="Token">
 		<xs:restriction base="xs:NMTOKEN" />
