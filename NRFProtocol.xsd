@@ -248,7 +248,7 @@
 			<xs:attribute name="Width" type="nrf:unsignedInt" use="optional" default="1" />
 			<xs:attribute name="Type" type="nrf:DataTypeID" use="required" />
 			<xs:attribute name="SubType" type="nrf:SubType" use="optional" />
-			<xs:anyAttribute namespace="##any" processContent="lax"/>
+			<xs:anyAttribute namespace="##any" processContents="lax"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="NRFPacket">
