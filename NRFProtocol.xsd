@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<xs:schema version="CURRENT" xmlns="http://dealing.ninja/NRFProtocol" xmlns:nrf="http://dealing.ninja/NRFProtocol" xmlns:xs="http://www.w3.org/2009/XMLSchema" xs:targetNamespace="http://dealing.ninja/NRFProtocol" xs:elementFormDefault="qualified" xs:attributeFormDefault="unqualified">
+<xs:schema version="CURRENT" xmlns="http://dealing.ninja/NRFProtocol" xmlns:nrf="http://dealing.ninja/NRFProtocol" xmlns:xs="http://www.w3.org/2009/XMLSchema" xs:elementFormDefault="unqualified" xs:attributeFormDefault="unqualified">
 	<xs:element name="NRFProtocol">
 		<xs:complexType>
 			<xs:all>

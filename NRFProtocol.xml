@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<NRFProtocol xmlns="http://dealing.ninja/NRFProtocol" xmlns:xsi="http://www.w3.org/2009/XMLSchema-instance" xsi:schemaLocation=
+<nrf:NRFProtocol xmlns="http://dealing.ninja/NRFProtocol" xmlns:nrf="http://dealing.ninja/NRFProtocol" xmlns:xsi="http://www.w3.org/2009/XMLSchema-instance" xsi:schemaLocation=
 	"http://dealing.ninja/NRFProtocol
 	http://raw.githubusercontent.com/kieransimkin/TangleNet-ProtocolSchema/master/NRFProtocol.xsd" >
 	<BitfieldTypes>
@@ -721,4 +721,4 @@
 			]]></Description>
 		</MessageType>-->
 	</MessageTypes>
-</NRFProtocol>
+</nrf:NRFProtocol>
