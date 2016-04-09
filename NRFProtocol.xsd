@@ -74,7 +74,7 @@
 	<xs:element name="BitfieldTypes">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="BitfieldType" maxOccurs="unbounded" />
+				<xs:element ref="nrf:BitfieldType" maxOccurs="unbounded" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
@@ -254,7 +254,7 @@
 	<xs:element name="NRFPacket">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="Field" maxOccurs="unbounded" />
+				<xs:element ref="nrf:Field" maxOccurs="unbounded" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
@@ -280,7 +280,7 @@
 				<xs:element name="PayloadStructure">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element ref="Field" maxOccurs="unbounded" />
+							<xs:element ref="nrf:Field" maxOccurs="unbounded" />
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
@@ -315,7 +315,7 @@
 				<xs:element name="Messages">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element ref="Message" maxOccurs="unbounded" minOccurs="1" />
+							<xs:element ref="nrf:Message" maxOccurs="unbounded" minOccurs="1" />
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
@@ -326,7 +326,7 @@
 	<xs:element name="MessageTypes">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="MessageType" maxOccurs="unbounded" />
+				<xs:element ref="nrf:MessageType" maxOccurs="unbounded" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
