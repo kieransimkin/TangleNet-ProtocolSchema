@@ -7,14 +7,14 @@
 
 			]]></Description>
 			<Bits>
-				<Bit ID="BEGIN"><Description></Description></Bit>
-				<Bit ID="END"><Description></Description></Bit>
-				<Bit ID="ECHO"><Description></Description></Bit>
-				<Bit ID="SIGNED"><Description></Description></Bit>
-				<Bit ID="RETRANSMIT"><Description></Description></Bit>
-				<Bit ID="FORWARDED"><Description></Description></Bit>
-				<Bit ID="CHRONICLE"><Description></Description></Bit>
-				<Bit ID="PLEASE_SIGN"><Description></Description></Bit>
+				<Bit ID="BEGIN"		CodeName="Begin"><Description></Description></Bit>
+				<Bit ID="END"		CodeName="End"><Description></Description></Bit>
+				<Bit ID="ECHO"		CodeName="Echo"><Description></Description></Bit>
+				<Bit ID="SIGNED" CodeName="Signed"><Description></Description></Bit>
+				<Bit ID="REPEAT" CodeName="Repeat"><Description></Description></Bit>
+				<Bit ID="FORWARDED" CodeName="Forwarded"><Description></Description></Bit>
+				<Bit ID="CHRONICLE" CodeName="Chronicle"><Description></Description></Bit>
+				<Bit ID="PLEASE_SIGN" CodeName="PleaseSign"><Description></Description></Bit>
 			</Bits>
 		</BitfieldType>
 		<BitfieldType ID="TEMPORAL_ACCURACY" Width="1">
@@ -23,14 +23,14 @@
 
 			]]></Description>
 			<Bits>
-				<Bit ID="RTC"><Description></Description></Bit>
-				<Bit ID="TCXO"><Description></Description></Bit>
-				<Bit ID="NTP"><Description></Description></Bit>
-				<Bit ID="GPS"><Description></Description></Bit>
-				<Bit ID="RF"><Description></Description></Bit>
-				<Bit ID="RUBIDIUM"><Description></Description></Bit>
-				<Bit ID="CAESEUM"><Description></Description></Bit>
-				<Bit ID="TIMELORD"><Description></Description></Bit>
+				<Bit ID="RTC" CodeName="RTC"><Description></Description></Bit>
+				<Bit ID="TCXO" CodeName="TCXO"><Description></Description></Bit>
+				<Bit ID="NTP" CodeName="NTP"><Description></Description></Bit>
+				<Bit ID="GPS" CodeName="GPS"><Description></Description></Bit>
+				<Bit ID="RF" CodeName="RF"><Description></Description></Bit>
+				<Bit ID="RUBIDIUM" CodeName="Rubidium"><Description></Description></Bit>
+				<Bit ID="CAESEUM" CodeName="Caeseum"><Description></Description></Bit>
+				<Bit ID="TIMELORD" CodeName="Timelord"><Description></Description></Bit>
 			</Bits>
 		</BitfieldType>
 		<BitfieldType ID="SPACIAL_ACCURACY" Width="1">
@@ -39,14 +39,14 @@
 
 			]]></Description>
 			<Bits>
-				<Bit ID="GPS"><Description></Description></Bit>
-				<Bit ID="WIFI"><Description></Description></Bit>
-				<Bit ID="DEDUCED"><Description></Description></Bit>
-				<Bit ID="CONFIRMED"><Description></Description></Bit>
-				<Bit ID="CELESTIAL"><Description></Description></Bit>
-				<Bit ID="MAGNETIC"><Description></Description></Bit>
-				<Bit ID="ACCELEROMETER"><Description></Description></Bit>
-				<Bit ID="KNOWN_FIXED"><Description></Description></Bit>
+				<Bit ID="DEDUCED" CodeName="Deduced"><Description></Description></Bit>
+				<Bit ID="MAGNETIC" CodeName="Magnetic"><Description></Description></Bit>
+				<Bit ID="CELESTIAL" CodeName="Celestial"><Description></Description></Bit>
+				<Bit ID="GPS" CodeName="GPS"><Description></Description></Bit>
+				<Bit ID="WIFI" CodeName="Wifi"><Description></Description></Bit>
+				<Bit ID="CONFIRMED" CodeName="Confirmed"><Description></Description></Bit>
+				<Bit ID="ACCELEROMETER" CodeName="Accelerometer"><Description></Description></Bit>
+				<Bit ID="KNOWN_FIXED" CodeName="KnownFixed"><Description></Description></Bit>
 			</Bits>
 		</BitfieldType>
 	</BitfieldTypes>
@@ -418,7 +418,6 @@
 						<Flag Mandatory="true">BEGIN</Flag>
 						<Flag Mandatory="true">END</Flag>
 						<Flag>SIGNED</Flag>
-						<Flag>RETRANSMIT</Flag>
 					</Flags>
 					<PayloadStructure>
 						<Field ID="SubType" Width="1" Type="SUBTYPE"><Description></Description></Field>
@@ -431,7 +430,6 @@
 						<Flag Mandatory="true">BEGIN</Flag>
 						<Flag Mandatory="true">END</Flag>
 						<Flag>SIGNED</Flag>
-						<Flag>RETRANSMIT</Flag>
 					</Flags>
 					<PayloadStructure>
 						<Field ID="SubType" Width="1" Type="SUBTYPE"><Description></Description></Field>
