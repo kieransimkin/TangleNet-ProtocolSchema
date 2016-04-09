@@ -69,7 +69,7 @@
 		<xs:restriction base="xs:NMTOKEN" />
 	</xs:simpleType>
 	<xs:simpleType name="MessageTypeID">
-		<xs:restriction base="xs:Token" />
+		<xs:restriction base="xs:NMTOKEN" />
 	</xs:simpleType>
 	<xs:element name="BitfieldTypes">
 		<xs:complexType>
