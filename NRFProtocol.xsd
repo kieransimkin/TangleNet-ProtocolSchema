@@ -3,11 +3,11 @@
 	<xs:element name="NRFProtocol">
 		<xs:complexType>
 			<xs:all>
-				<xs:element ref="BitfieldTypes" />
-				<xs:element ref="EnumerationTypes" />
-				<xs:element ref="Types" />
-				<xs:element ref="NRFPacket" />
-				<xs:element ref="MessageTypes" />
+				<xs:element ref="nrf:BitfieldTypes" />
+				<xs:element ref="nrf:EnumerationTypes" />
+				<xs:element ref="nrf:Types" />
+				<xs:element ref="nrf:NRFPacket" />
+				<xs:element ref="nrf:MessageTypes" />
 			</xs:all>
 			<xs:attribute name="noNamespaceSchemaLocation" type="String" />
 		</xs:complexType>
